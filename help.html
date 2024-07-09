@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style/help.css">
+  <title>QR Tools</title>
+</head>
+
+<body>
+  <div class="wrapper">
+    <h2>QR Tools</h2>
+
+    <button class="accordion">How to use?</button>
+    <div class="panel">
+      <p>1. By default, this extension displays the QR code corresponding to the current web page URL;</p>
+      <p>2. You can modify the URL string in the input box, and the QR code will automatically update.</p>
+    </div>
+
+    <br />
+    <div class="footer">If you have any questions, don’t hesitate to contact our Support service -
+      cameoshell09@gmail.com</div>
+  </div>
+
+  <script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function () {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.maxHeight) {
+          panel.style.maxHeight = null;
+        } else {
+          panel.style.maxHeight = panel.scrollHeight + "px";
+        }
+      });
+    }
+
+    acc[0].click();
+  </script>
+</body>
+
+</html>
