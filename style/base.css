@@ -322,6 +322,13 @@ h2 {
   margin-top: 0;
 }
 
+.install-panel {
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
 .footer {
   padding: 28px 0 12px;
   color: var(--muted);
