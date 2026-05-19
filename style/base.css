@@ -100,6 +100,25 @@ a:hover {
   font-weight: 700;
 }
 
+.language-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.language-switch select {
+  min-height: 34px;
+  padding: 0 32px 0 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface-strong);
+  color: var(--text);
+  font: inherit;
+}
+
 .hero {
   min-height: calc(100vh - 116px);
   display: grid;
@@ -235,22 +254,9 @@ h2 {
   aspect-ratio: 1;
   margin: 12px auto 0;
   padding: 24px;
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 8px;
+  display: block;
   border-radius: 8px;
   background: #ffffff;
-}
-
-.qr-preview i {
-  background: #101010;
-}
-
-.qr-preview i:nth-child(3n),
-.qr-preview i:nth-child(7),
-.qr-preview i:nth-child(14),
-.qr-preview i:nth-child(20) {
-  background: transparent;
 }
 
 .section {
