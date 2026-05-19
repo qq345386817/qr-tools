@@ -69,6 +69,7 @@ a:hover {
 
 .topbar {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 18px;
@@ -91,25 +92,37 @@ a:hover {
 .nav {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
   gap: 14px;
+  min-width: 0;
 }
 
 .nav a {
+  min-height: 34px;
+  display: inline-flex;
+  align-items: center;
   color: var(--muted);
   font-size: 14px;
   font-weight: 700;
+  line-height: 1;
 }
 
 .language-switch {
+  min-height: 34px;
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  min-width: 0;
   color: var(--muted);
   font-size: 14px;
   font-weight: 700;
+  line-height: 1;
 }
 
 .language-switch select {
+  max-width: 100%;
+  height: 34px;
   min-height: 34px;
   padding: 0 32px 0 10px;
   border: 1px solid var(--border);
@@ -191,19 +204,10 @@ h2 {
 }
 
 .store-icon {
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   flex: 0 0 auto;
-}
-
-.button.primary .store-icon {
-  filter: brightness(0) invert(1);
-}
-
-@media (prefers-color-scheme: dark) {
-  .button:not(.primary) .store-icon {
-    filter: brightness(0) invert(1);
-  }
+  border-radius: 5px;
 }
 
 .button.compact {
@@ -248,6 +252,8 @@ h2 {
   background: var(--surface-strong);
   color: var(--muted);
   font-size: 14px;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .tool-row {
@@ -365,6 +371,20 @@ h2 {
     flex-direction: column;
   }
 
+  .nav {
+    width: 100%;
+    justify-content: flex-start;
+    gap: 10px 12px;
+  }
+
+  .language-switch {
+    flex: 1 1 240px;
+  }
+
+  .language-switch select {
+    flex: 1;
+  }
+
   .hero {
     min-height: auto;
     grid-template-columns: 1fr;
@@ -387,5 +407,28 @@ h2 {
   .split {
     align-items: flex-start;
     flex-direction: column;
+  }
+}
+
+@media (max-width: 520px) {
+  .page {
+    padding-top: 18px;
+  }
+
+  .container {
+    width: min(420px, calc(100% - 48px));
+  }
+
+  .nav a {
+    flex: 0 0 auto;
+  }
+
+  .language-switch {
+    flex: 1 0 100%;
+  }
+
+  .actions .button {
+    width: 100%;
+    max-width: 320px;
   }
 }
