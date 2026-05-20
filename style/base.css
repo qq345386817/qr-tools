@@ -2,27 +2,27 @@
 
 :root {
   color-scheme: light dark;
-  --bg: #f4fbfa;
+  --bg: #f2f8f7;
   --surface: rgba(255, 255, 255, 0.88);
   --surface-strong: #ffffff;
   --text: #14212b;
   --muted: #62717b;
   --border: rgba(20, 33, 43, 0.12);
-  --primary: #0a7c86;
-  --primary-dark: #065a62;
-  --warm: #f47f5b;
+  --primary: #008f7c;
+  --primary-dark: #06354e;
+  --teal-soft: #2ec9c3;
+  --warm: #1b8ea3;
   --gold: #f6c85f;
-  --sky: #62c5df;
-  --shadow: 0 22px 70px rgba(8, 70, 76, 0.14);
+  --shadow: 0 22px 70px rgba(6, 53, 78, 0.14);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #101719;
-    --surface: rgba(24, 33, 35, 0.86);
-    --surface-strong: #182123;
+    --bg: #031f2e;
+    --surface: rgba(6, 53, 78, 0.86);
+    --surface-strong: #052a3d;
     --text: #edf7f7;
-    --muted: #a9b8bb;
+    --muted: #b7d7d7;
     --border: rgba(255, 255, 255, 0.12);
     --shadow: 0 22px 70px rgba(0, 0, 0, 0.38);
   }
@@ -37,9 +37,9 @@ body {
 body {
   color: var(--text);
   background:
-    linear-gradient(145deg, rgba(10, 124, 134, 0.18), transparent 34%),
-    linear-gradient(28deg, rgba(246, 200, 95, 0.22), transparent 38%),
-    linear-gradient(315deg, rgba(244, 127, 91, 0.20), transparent 34%),
+    linear-gradient(145deg, rgba(0, 143, 124, 0.18), transparent 34%),
+    linear-gradient(28deg, rgba(46, 201, 195, 0.18), transparent 38%),
+    linear-gradient(315deg, rgba(6, 53, 78, 0.16), transparent 34%),
     var(--bg);
   font-family: Avenir Next, Avenir, Trebuchet MS, Segoe UI, sans-serif;
   line-height: 1.62;
@@ -194,12 +194,12 @@ h2 {
   background: var(--surface-strong);
   color: var(--text);
   font-weight: 800;
-  box-shadow: 0 8px 22px rgba(8, 70, 76, 0.10);
+  box-shadow: 0 8px 22px rgba(6, 53, 78, 0.10);
 }
 
 .button.primary {
   border-color: transparent;
-  background: linear-gradient(135deg, var(--primary), var(--sky));
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
   color: #ffffff;
 }
 
@@ -241,7 +241,7 @@ h2 {
 }
 
 .browser-bar span:nth-child(3) {
-  background: var(--sky);
+  background: var(--teal-soft);
 }
 
 .url-box {
