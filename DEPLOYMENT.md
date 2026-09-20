@@ -12,12 +12,12 @@ The previous public path was:
 
 Recommended redirects:
 
-- `http://luopeike.com/qr-tools/` -> `https://qrtools.luopeike.com/index.html`
-- `http://luopeike.com/qr-tools/index.html` -> `https://qrtools.luopeike.com/index.html`
-- `http://luopeike.com/qr-tools/help.html` -> `https://qrtools.luopeike.com/help.html`
-- `http://luopeike.com/qr-tools/help_win.html` -> `https://qrtools.luopeike.com/help_win.html`
-- `http://luopeike.com/qr-tools/support.html` -> `https://qrtools.luopeike.com/support.html`
-- `http://luopeike.com/qr-tools/privacy-policy.html` -> `https://qrtools.luopeike.com/privacy-policy.html`
+- `http://luopeike.com/qr-tools/` -> `https://qrtools.luopeike.com/`
+- `http://luopeike.com/qr-tools/index.html` -> `https://qrtools.luopeike.com/`
+- `http://luopeike.com/qr-tools/help.html` -> `https://qrtools.luopeike.com/help`
+- `http://luopeike.com/qr-tools/help_win.html` -> `https://qrtools.luopeike.com/help_win`
+- `http://luopeike.com/qr-tools/support.html` -> `https://qrtools.luopeike.com/support`
+- `http://luopeike.com/qr-tools/privacy-policy.html` -> `https://qrtools.luopeike.com/privacy-policy`
 
 Use permanent `301` redirects once the new domain is live.
 
@@ -29,11 +29,11 @@ After HTTPS is configured and verified for `qrtools.luopeike.com`, disable plain
 
 - `https://qrtools.luopeike.com/robots.txt`
 - `https://qrtools.luopeike.com/sitemap.xml`
-- `https://qrtools.luopeike.com/index.html`
-- `https://qrtools.luopeike.com/zh-Hans/index.html`
-- `https://qrtools.luopeike.com/zh-Hant/index.html`
-- `https://qrtools.luopeike.com/ja/index.html`
-- `https://qrtools.luopeike.com/ko/index.html`
-- `https://qrtools.luopeike.com/de-DE/index.html`
-- `https://qrtools.luopeike.com/fr-FR/index.html`
-- `https://qrtools.luopeike.com/es-ES/index.html`
+- `https://qrtools.luopeike.com/`
+- `https://qrtools.luopeike.com/zh-Hans/`
+- `https://qrtools.luopeike.com/zh-Hant/`
+- `https://qrtools.luopeike.com/ja/`
+- `https://qrtools.luopeike.com/ko/`
+- `https://qrtools.luopeike.com/de-DE/`
+- `https://qrtools.luopeike.com/fr-FR/`
+- `https://qrtools.luopeike.com/es-ES/`
