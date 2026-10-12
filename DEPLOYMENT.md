@@ -35,6 +35,29 @@ generates the tool pages and adds their clean canonical URLs to `sitemap.xml`.
 The QR encoder and image decoder are bundled locally; reading loads the decoder
 only when needed. Dependency versions are locked in `package-lock.json`.
 
+## Search and AI Content
+
+`src/seo.mjs` owns the tool-specific search titles, descriptions and visible
+questions for all eight languages. Titles describe the real online tools;
+answers explain static QR codes, privacy, supported formats and limitations.
+Do not add fabricated ratings, expiry claims, or hosted dynamic-code features.
+
+The build also emits `llms.txt` and a Markdown version of every tool page. The
+Markdown copy comes from the same localized content as the HTML. Each HTML page
+links to its Markdown alternate and to the `llms.txt` overview. These files are
+optional agent-readable resources, not a Google indexing or ranking requirement.
+
+Cloudflare Pages reads `_headers` to serve Markdown as `text/markdown` with
+`X-Robots-Tag: noindex, follow`; search indexing stays focused on the canonical
+HTML pages. Markdown and `llms.txt` are deliberately excluded from the sitemap.
+Keep `robots.txt` crawlable and verify actual Google fetches in URL Inspection.
+
+Old `.html` URLs permanently redirect to the clean canonical routes. They are
+expected to remain in GSC's redirect exclusion list, even if someone previously
+started a validation request for them. Do not remove the correct redirects just
+to make that report empty. The historical Cloudflare email-protection URL is
+not a content page and stays 404; page links to it were removed by `email_off`.
+
 For a local preview, run `npm run dev` and open `http://127.0.0.1:4173`. Set `PORT`
 to another value if that port is occupied. This preview server emulates clean
 Cloudflare page routes and is for local development only.

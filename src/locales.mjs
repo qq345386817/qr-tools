@@ -80,8 +80,8 @@ export const locales = Object.fromEntries(Object.entries(definitions).map(([code
 }]));
 
 export const pages = [
-  { slug: '', type: 'link', mode: 'create' },
-  { slug: 'wifi-qr-code-generator', type: 'wifi', mode: 'create', titleKey: 'wifiTitle', copyKey: 'wifiCopy' },
-  { slug: 'contact-qr-code-generator', type: 'contact', mode: 'create', titleKey: 'contactTitle', copyKey: 'contactCopy' },
-  { slug: 'qr-code-reader', type: 'link', mode: 'read', titleKey: 'readerTitle', copyKey: 'readerCopy' },
+  { slug: '', type: 'link', mode: 'create', seoKey: 'home' },
+  { slug: 'wifi-qr-code-generator', type: 'wifi', mode: 'create', titleKey: 'wifiTitle', copyKey: 'wifiCopy', seoKey: 'wifi' },
+  { slug: 'contact-qr-code-generator', type: 'contact', mode: 'create', titleKey: 'contactTitle', copyKey: 'contactCopy', seoKey: 'contact' },
+  { slug: 'qr-code-reader', type: 'link', mode: 'read', titleKey: 'readerTitle', copyKey: 'readerCopy', seoKey: 'reader' },
 ];

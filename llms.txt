@@ -1,0 +1,35 @@
+# QR Tools
+
+> Free browser tools for static QR code generation and local QR image reading. Optional Safari and Chrome extensions provide current-tab QR codes.
+
+The website generates QR codes for URLs, text, Wi-Fi credentials, email, SMS and vCard 3.0 contacts. Users can change colors and error correction, export PNG or SVG, and read images or use a permitted camera. QR content, passwords and images are processed in the browser, without server upload, website accounts or saved history.
+
+Codes are static: encoded content does not update after distribution. This is not a hosted dynamic QR redirect or editable digital-profile service. Wi-Fi passwords and contact details can be read by anyone with the QR image. The website cannot inspect other browser tabs; that is an extension feature.
+
+## Tools
+
+- [Free Online QR Code Generator & Reader](https://qrtools.luopeike.com/index.md): Make free static QR codes for URLs, text, Wi-Fi, email, SMS and vCard contacts. Customize colors, export PNG or SVG, and scan QR images without uploading them.
+- [Free Wi-Fi QR Code Generator for Guests](https://qrtools.luopeike.com/wifi-qr-code-generator.md): Create a Wi-Fi QR code for guests: network name, password, WPA/WPA2/WPA3 or WEP, open and hidden networks. Download PNG or SVG with no password upload.
+- [Free vCard QR Code Generator for Contact Cards](https://qrtools.luopeike.com/contact-qr-code-generator.md): Make a static vCard 3.0 contact QR code with name, phone, email, company and website. Export your contact card as PNG or SVG without an account.
+- [Free Online QR Code Reader for Images & Camera](https://qrtools.luopeike.com/qr-code-reader.md): Read QR codes from PNG, JPEG, GIF, WebP or BMP images, or use your camera. Decode locally, review the text and open links yourself. No image upload.
+
+## Languages
+
+- [简体中文](https://qrtools.luopeike.com/zh-Hans/index.md): Localized tool information and links to its canonical HTML page.
+- [繁體中文](https://qrtools.luopeike.com/zh-Hant/index.md): Localized tool information and links to its canonical HTML page.
+- [日本語](https://qrtools.luopeike.com/ja/index.md): Localized tool information and links to its canonical HTML page.
+- [한국어](https://qrtools.luopeike.com/ko/index.md): Localized tool information and links to its canonical HTML page.
+- [Deutsch](https://qrtools.luopeike.com/de-DE/index.md): Localized tool information and links to its canonical HTML page.
+- [Français](https://qrtools.luopeike.com/fr-FR/index.md): Localized tool information and links to its canonical HTML page.
+- [Español](https://qrtools.luopeike.com/es-ES/index.md): Localized tool information and links to its canonical HTML page.
+
+## Support and Privacy
+
+- [Help](https://qrtools.luopeike.com/help): Safari extension setup and QR workflows.
+- [Support](https://qrtools.luopeike.com/support): Contact and support links.
+- [Privacy policy](https://qrtools.luopeike.com/privacy-policy): Local processing and data handling.
+
+## Optional
+
+- [QR Tools on the App Store](https://apps.apple.com/app/id6526476285): The iPhone, iPad and Mac app with the Safari extension.
+- [QR Tools on the Chrome Web Store](https://chromewebstore.google.com/detail/qr-tools-customizable/pmilkclbidnbagfonjnbdnegneifogpl): The desktop Chrome extension.

@@ -76,11 +76,19 @@ input[type="color"] { border: 0; padding: 0; background: transparent; width: 30p
 .app-band p { color: var(--muted); font-size: 14px; margin: 6px 0 0; max-width: 710px; }
 .app-band > a { white-space: nowrap; }
 .tool-links { padding: 24px 0; }
+.qr-questions { padding: 24px 0 8px; }
+.qr-questions h2 { margin-bottom: 14px; }
+.qr-questions details { border-bottom: 1px solid var(--line); padding: 14px 0; }
+.qr-questions summary { cursor: pointer; font-size: 15px; font-weight: 600; }
+.qr-questions p { max-width: 880px; color: var(--muted); margin: 12px 0 4px; font-size: 14px; }
 .tool-links h2 { font-size: 16px; margin-bottom: 12px; }
 .tool-links > div { display: flex; flex-wrap: wrap; gap: 12px 26px; }
 .tool-links a { font-size: 14px; color: var(--muted); display: flex; align-items: center; gap: 4px; }
 .tool-links .lucide { width: 14px; height: 14px; }
-.site-footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 24px; font-size: 13px; color: var(--muted); padding: 14px 0 28px; }
+.site-footer { display: flex; flex-direction: column; align-items: center; gap: 14px; font-size: 13px; color: var(--muted); padding: 14px 0 28px; }
+.footer-links, .locale-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 24px; }
+.locale-links { font-size: 12px; }
+.locale-links [aria-current="page"] { color: var(--accent); font-weight: 600; }
 .reader-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; }
 .drop-zone { border: 1px dashed #b8c7d0; border-radius: 6px; background: var(--soft); min-height: 248px; display: flex; align-items: center; justify-content: center; flex-direction: column; padding: 24px; }
 .drop-zone > .lucide { width: 34px; height: 34px; color: var(--muted); }

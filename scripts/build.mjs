@@ -2,6 +2,8 @@ import { build } from 'esbuild';
 import { readFile, writeFile, mkdir, readdir, rm } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { locales, pages, types } from '../src/locales.mjs';
+import { seo } from '../src/seo.mjs';
+import { updateLegacySeo } from './legacy-seo.mjs';
 
 const root = resolve(import.meta.dirname, '..');
 const origin = 'https://qrtools.luopeike.com';
@@ -14,7 +16,8 @@ function renderPage(code, locale, page) {
   const prefix = locale.path ? '../' : '';
   const url = `${origin}/${locale.path}${page.slug}`;
   const title = page.titleKey ? ui[page.titleKey] : locale.title;
-  const copy = page.copyKey ? ui[page.copyKey] : '';
+  const content = seo[code][page.seoKey];
+  const copy = page.copyKey ? ui[page.copyKey] : content.summary;
   const field = (name, type = 'text', options = {}) => {
     const label = `${escape(fields[name])}${options.required ? ' <span aria-hidden="true">*</span>' : ''}`;
     const attributes = `name="${name}" id="field-${options.id ?? name}" ${options.required ? 'required' : ''} ${options.value ? `value="${escape(options.value)}"` : ''} ${options.autocomplete ? `autocomplete="${options.autocomplete}"` : ''}`;
@@ -35,24 +38,30 @@ function renderPage(code, locale, page) {
   ];
   const selected = page.type;
   const links = pages.filter((entry) => entry.slug && entry.slug !== page.slug).map((entry) => `<a href="${entry.slug}">${escape(ui[entry.titleKey])}${icon('arrow-up-right')}</a>`).join('');
-  const schema = { '@context': 'https://schema.org', '@type': 'WebApplication', name: `QR Tools: ${title}`, url, applicationCategory: 'UtilitiesApplication', operatingSystem: 'Any', browserRequirements: 'Requires JavaScript', inLanguage: code, offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' }, description: copy || locale.description };
+  const schema = { '@context': 'https://schema.org', '@graph': [
+    { '@type': 'WebSite', '@id': `${origin}/#website`, name: 'QR Tools', url: `${origin}/`, inLanguage: Object.keys(locales) },
+    { '@type': 'WebPage', '@id': `${url}#page`, name: content.title, url, description: content.description, inLanguage: code, isPartOf: { '@id': `${origin}/#website` }, mainEntity: { '@id': `${url}#tool` } },
+    { '@type': 'WebApplication', '@id': `${url}#tool`, name: `QR Tools: ${title}`, url, applicationCategory: 'UtilitiesApplication', operatingSystem: 'Any', browserRequirements: 'Requires JavaScript', inLanguage: code, isAccessibleForFree: true, offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' }, description: content.description },
+  ] };
   const pageData = JSON.stringify({ code, ui, messages: locale.messages, defaultType: selected, defaultMode: page.mode }).replace(/</g, '\\u003c');
   return `<!DOCTYPE html>
 <html lang="${code}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>${escape(title)} | QR Tools</title>
-  <meta name="description" content="${escape(copy || locale.description)}">
+  <title>${escape(content.title)} | QR Tools</title>
+  <meta name="description" content="${escape(content.description)}">
   <meta name="robots" content="index,follow">
-  <meta property="og:title" content="${escape(title)} | QR Tools">
-  <meta property="og:description" content="${escape(copy || locale.description)}">
+  <meta property="og:title" content="${escape(content.title)} | QR Tools">
+  <meta property="og:description" content="${escape(content.description)}">
   <meta property="og:type" content="website">
   <meta property="og:url" content="${url}">
   <meta property="og:image" content="${origin}/images/social-preview.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="${origin}/images/social-preview.png">
   <link rel="canonical" href="${url}">
+  <link rel="alternate" type="text/markdown" href="${origin}/${locale.path}${page.slug || 'index'}.md">
+  <link rel="describedby" type="text/plain" href="${origin}/llms.txt">
 ${Object.entries(locales).map(([language, entry]) => `  <link rel="alternate" hreflang="${language}" href="${origin}/${entry.path}${page.slug}">`).join('\n')}
   <link rel="alternate" hreflang="x-default" href="${origin}/${page.slug}">
   <link rel="apple-touch-icon" sizes="180x180" href="${prefix}favicon/apple-touch-icon.png">
@@ -111,10 +120,11 @@ ${copy ? `    <p class="page-summary">${escape(copy)}</p>` : ''}
     </section>
     <p class="privacy-note">${icon('shield-check')}${escape(ui.localPrivacy)}</p>
     <section class="app-band"><img src="${prefix}favicon/apple-touch-icon.png" width="48" height="48" alt="QR Tools"><div><h2>${escape(ui.appTitle)}</h2><p>${escape(ui.appCopy)}</p></div><a class="secondary-button" href="https://apps.apple.com/app/id6526476285"><img src="${prefix}images/app-store-icon.svg" width="20" height="20" alt="">App Store</a></section>
+    <section class="qr-questions" aria-labelledby="questions-heading"><h2 id="questions-heading">${escape(seo[code].faqHeading)}</h2>${content.questions.map(([question, answer]) => `<details><summary>${escape(question)}</summary><p>${escape(answer)}</p></details>`).join('')}</section>
     <section class="tool-links"><h2>${escape(ui.guides)}</h2><div>${links}<a href="https://chromewebstore.google.com/detail/qr-tools-customizable/pmilkclbidnbagfonjnbdnegneifogpl">${escape(ui.chrome)}${icon('arrow-up-right')}</a>${code === 'en' ? staticGuideLinks.map(([slug, text]) => `<a href="${slug}">${escape(text)}${icon('arrow-up-right')}</a>`).join('') : ''}</div></section>
     <noscript><p>${escape(ui.notSupported)}</p><a href="https://apps.apple.com/app/id6526476285">App Store</a></noscript>
   </main>
-  <footer class="container site-footer"><a href="help">${escape(ui.help)}</a><a href="support">${escape(ui.support)}</a><a href="privacy-policy">${escape(ui.privacy)}</a><span>QR Tools</span></footer>
+  <footer class="container site-footer"><div class="footer-links"><a href="help">${escape(ui.help)}</a><a href="support">${escape(ui.support)}</a><a href="privacy-policy">${escape(ui.privacy)}</a><span>QR Tools</span></div><nav class="locale-links" aria-label="${escape(ui.language)}">${Object.entries(locales).map(([language, entry]) => `<a href="/${entry.path}${page.slug}" hreflang="${language}" ${language === code ? 'aria-current="page"' : ''}>${entry.name}</a>`).join('')}</nav></footer>
 </body>
 </html>
 `;
@@ -125,8 +135,46 @@ for (const [code, locale] of Object.entries(locales)) {
     const filename = `${locale.path}${page.slug || 'index'}.html`;
     await mkdir(resolve(root, locale.path), { recursive: true });
     await writeFile(resolve(root, filename), renderPage(code, locale, page));
+    const content = seo[code][page.seoKey];
+    const canonical = `${origin}/${locale.path}${page.slug}`;
+    const related = pages.filter((entry) => entry.slug && entry.slug !== page.slug).map((entry) => `- [${locale.ui[entry.titleKey]}](${origin}/${locale.path}${entry.slug}.md)`).join('\n');
+    const markdown = `# ${content.title}\n\n${content.description}\n\n[${page.titleKey ? locale.ui[page.titleKey] : locale.title}](${canonical})\n\n${content.questions.map(([question, answer]) => `## ${question}\n\n${answer}`).join('\n\n')}\n\n## ${locale.ui.guides}\n\n${related}\n\n---\n\nQR Tools: ${origin}/\nCanonical page: ${canonical}\nLanguage: ${code}\n`;
+    await writeFile(resolve(root, `${locale.path}${page.slug || 'index'}.md`), markdown);
   }
 }
+
+await updateLegacySeo(root, locales, pages, escape);
+
+const markdownPaths = Object.values(locales).flatMap((locale) => pages.map((page) => `/${locale.path}${page.slug || 'index'}.md`));
+await writeFile(resolve(root, '_headers'), markdownPaths.map((path) => `${path}\n  Content-Type: text/markdown; charset=utf-8\n  X-Robots-Tag: noindex, follow\n`).join('\n'));
+const llms = `# QR Tools
+
+> Free browser tools for static QR code generation and local QR image reading. Optional Safari and Chrome extensions provide current-tab QR codes.
+
+The website generates QR codes for URLs, text, Wi-Fi credentials, email, SMS and vCard 3.0 contacts. Users can change colors and error correction, export PNG or SVG, and read images or use a permitted camera. QR content, passwords and images are processed in the browser, without server upload, website accounts or saved history.
+
+Codes are static: encoded content does not update after distribution. This is not a hosted dynamic QR redirect or editable digital-profile service. Wi-Fi passwords and contact details can be read by anyone with the QR image. The website cannot inspect other browser tabs; that is an extension feature.
+
+## Tools
+
+${pages.map((page) => `- [${seo.en[page.seoKey].title}](${origin}/${page.slug || 'index'}.md): ${seo.en[page.seoKey].description}`).join('\n')}
+
+## Languages
+
+${Object.entries(locales).filter(([code]) => code !== 'en').map(([, locale]) => `- [${locale.name}](${origin}/${locale.path}index.md): Localized tool information and links to its canonical HTML page.`).join('\n')}
+
+## Support and Privacy
+
+- [Help](${origin}/help): Safari extension setup and QR workflows.
+- [Support](${origin}/support): Contact and support links.
+- [Privacy policy](${origin}/privacy-policy): Local processing and data handling.
+
+## Optional
+
+- [QR Tools on the App Store](https://apps.apple.com/app/id6526476285): The iPhone, iPad and Mac app with the Safari extension.
+- [QR Tools on the Chrome Web Store](https://chromewebstore.google.com/detail/qr-tools-customizable/pmilkclbidnbagfonjnbdnegneifogpl): The desktop Chrome extension.
+`;
+await writeFile(resolve(root, 'llms.txt'), llms);
 
 // Preserve the existing canonical guide/help/privacy entries while adding real tool pages.
 const sitemap = await readFile(resolve(root, 'sitemap.xml'), 'utf8');
