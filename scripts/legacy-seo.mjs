@@ -2,6 +2,7 @@ import { parse } from 'parse5';
 import { readFile, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { legacyDescriptions } from '../src/legacy-seo.mjs';
+import { websitePrivacy } from '../src/website-privacy.mjs';
 
 const attribute = (node, name) => node.attrs?.find((item) => item.name === name)?.value;
 function flatten(node) {
@@ -28,7 +29,18 @@ export async function updateLegacySeo(root, locales, pages, escape) {
     }
     const existing = nodes.find((node) => attribute(node, 'id') === 'online-tools');
     const links = pages.map((page) => `<li><a href="/${locale.path}${page.slug}">${escape(page.titleKey ? locale.ui[page.titleKey] : locale.title)}</a></li>`).join('');
-    const value = `<section id="online-tools"><h2>${escape(locale.ui.guides)}</h2><p>${escape(locale.ui.localPrivacy)}</p><ul>${links}</ul></section>`;
+    let value = `<section id="online-tools"><h2>${escape(locale.ui.guides)}</h2><p>${escape(locale.ui.localPrivacy)}</p><ul>${links}</ul></section>`;
+    if (slug === 'privacy-policy') {
+      const [heading, analytics, local, updated] = websitePrivacy[code];
+      const disclosure = `<section id="website-analytics"><h2>${escape(heading)}</h2><p>${escape(analytics)}</p><p>${escape(local)}</p><p><a href="https://developers.cloudflare.com/speed/observatory/rum-beacon/">Cloudflare Web Analytics</a></p><p class="small">${escape(updated)}</p></section>`;
+      const oldClaim = nodes.find((node) => node.tagName === 'p' && node.childNodes?.some((child) => child.value === 'QR Tools does not use Google Analytics or similar analytics services.'));
+      const oldDisclosure = nodes.find((node) => attribute(node, 'id') === 'website-analytics') || oldClaim?.parentNode;
+      const location = oldDisclosure?.sourceCodeLocation;
+      const position = existing?.sourceCodeLocation?.startOffset;
+      if (location) changes.push({ start: location.startOffset, end: location.endOffset, value: disclosure });
+      else if (position !== undefined) value = `${disclosure}\n        ${value}`;
+      else throw new Error(`Missing website privacy insertion point in ${file}`);
+    }
     if (existing) {
       changes.push({ start: existing.sourceCodeLocation.startOffset, end: existing.sourceCodeLocation.endOffset, value });
     } else {

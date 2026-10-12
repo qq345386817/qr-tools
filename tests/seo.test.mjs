@@ -5,6 +5,7 @@ import { createHash } from 'node:crypto';
 import { parse } from 'parse5';
 import { locales, pages } from '../src/locales.mjs';
 import { legacyDescriptions } from '../src/legacy-seo.mjs';
+import { websitePrivacy } from '../src/website-privacy.mjs';
 
 function nodes(document, predicate) {
   const results = [];
@@ -93,6 +94,17 @@ test('localized error pages are not indexable and recover correctly from nested 
       assert.ok(path.startsWith('/'), `absolute recovery path in ${filename}`);
     }
     assert.ok(!sitemap.includes('404'));
+  }
+});
+
+test('all website privacy pages disclose existing Cloudflare statistics and local QR processing', async () => {
+  for (const [code, locale] of Object.entries(locales)) {
+    const source = await readFile(`${locale.path}privacy-policy.html`, 'utf8');
+    const html = parse(source);
+    const sections = nodes(html, (node) => attribute(node, 'id') === 'website-analytics');
+    assert.equal(sections.length, 1);
+    for (const copy of websitePrivacy[code]) assert.ok(text(sections[0]).includes(copy));
+    assert.ok(!source.includes('QR Tools does not use Google Analytics or similar analytics services.'));
   }
 });
 

@@ -55,6 +55,12 @@ npm run build
 npm test
 ```
 
+The hosting layer currently injects Cloudflare's site visit/performance beacon.
+This is separate from QR processing; QR input is not sent as analytics data.
+All eight canonical privacy pages disclose it through `src/website-privacy.mjs`.
+Do not describe the entire hosted website as making no external requests, or
+silently add QR content or passwords to telemetry.
+
 `src/locales.mjs` owns localized labels and page metadata. `scripts/build.mjs`
 generates the tool pages and adds their clean canonical URLs to `sitemap.xml`.
 The QR encoder and image decoder are bundled locally; reading loads the decoder
