@@ -25,6 +25,10 @@ PNGは画像共有や文書に、拡大しても鮮明なSVGは印刷に適し�
 - [Wi-Fi QRコード作成](https://qrtools.luopeike.com/ja/wifi-qr-code-generator.md)
 - [連絡先QRコード作成](https://qrtools.luopeike.com/ja/contact-qr-code-generator.md)
 - [QRコード読み取り](https://qrtools.luopeike.com/ja/qr-code-reader.md)
+- [CSV一括QRコード作成・印刷ラベル](https://qrtools.luopeike.com/ja/bulk-qr-code-generator.md)
+- [QRコードURL・内容のローカル確認](https://qrtools.luopeike.com/ja/qr-code-url-inspector.md)
+- [Wi-Fi・イベント・メニューのQR案内板](https://qrtools.luopeike.com/ja/printable-qr-code-sign.md)
+- [カレンダー予定QRコード作成・ICS保存](https://qrtools.luopeike.com/ja/calendar-event-qr-code-generator.md)
 
 ---
 

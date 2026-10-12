@@ -20,6 +20,10 @@ Nein. Erstelle mit den neuen Daten einen neuen Code. Das alte Bild enthält weit
 
 - [Kontakt-QR-Code-Generator](https://qrtools.luopeike.com/de-DE/contact-qr-code-generator.md)
 - [QR-Code-Leser](https://qrtools.luopeike.com/de-DE/qr-code-reader.md)
+- [QR-Codes aus CSV erstellen und Etiketten drucken](https://qrtools.luopeike.com/de-DE/bulk-qr-code-generator.md)
+- [QR-URL und Inhalt lokal prüfen](https://qrtools.luopeike.com/de-DE/qr-code-url-inspector.md)
+- [QR-Schilder für WLAN, Events und Menüs drucken](https://qrtools.luopeike.com/de-DE/printable-qr-code-sign.md)
+- [Kalendertermin als QR-Code und ICS erstellen](https://qrtools.luopeike.com/de-DE/calendar-event-qr-code-generator.md)
 
 ---
 

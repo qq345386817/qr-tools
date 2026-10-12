@@ -25,6 +25,10 @@ Collez l’URL de la page sur le site. Les extensions Safari et Chrome récupèr
 - [Générateur de QR Wi-Fi](https://qrtools.luopeike.com/fr-FR/wifi-qr-code-generator.md)
 - [Générateur de QR de contact](https://qrtools.luopeike.com/fr-FR/contact-qr-code-generator.md)
 - [Lecteur de QR codes](https://qrtools.luopeike.com/fr-FR/qr-code-reader.md)
+- [Générateur QR en lot depuis CSV et étiquettes](https://qrtools.luopeike.com/fr-FR/bulk-qr-code-generator.md)
+- [Examiner les URL et le contenu QR localement](https://qrtools.luopeike.com/fr-FR/qr-code-url-inspector.md)
+- [Panneaux QR Wi-Fi, événements et menus à imprimer](https://qrtools.luopeike.com/fr-FR/printable-qr-code-sign.md)
+- [Générateur QR de calendrier et téléchargement ICS](https://qrtools.luopeike.com/fr-FR/calendar-event-qr-code-generator.md)
 
 ---
 

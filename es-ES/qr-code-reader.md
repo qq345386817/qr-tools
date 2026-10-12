@@ -20,6 +20,10 @@ La cámara es opcional y necesita permiso del navegador en HTTPS. No se solicita
 
 - [Generador de QR Wi-Fi](https://qrtools.luopeike.com/es-ES/wifi-qr-code-generator.md)
 - [Generador de QR de contacto](https://qrtools.luopeike.com/es-ES/contact-qr-code-generator.md)
+- [Generador QR por lotes desde CSV y etiquetas](https://qrtools.luopeike.com/es-ES/bulk-qr-code-generator.md)
+- [Examinar URL y contenido QR localmente](https://qrtools.luopeike.com/es-ES/qr-code-url-inspector.md)
+- [Carteles QR Wi-Fi, eventos y menús para imprimir](https://qrtools.luopeike.com/es-ES/printable-qr-code-sign.md)
+- [Generador QR de eventos y descarga ICS](https://qrtools.luopeike.com/es-ES/calendar-event-qr-code-generator.md)
 
 ---
 

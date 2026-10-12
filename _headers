@@ -14,6 +14,22 @@
   Content-Type: text/markdown; charset=utf-8
   X-Robots-Tag: noindex, follow
 
+/bulk-qr-code-generator.md
+  Content-Type: text/markdown; charset=utf-8
+  X-Robots-Tag: noindex, follow
+
+/qr-code-url-inspector.md
+  Content-Type: text/markdown; charset=utf-8
+  X-Robots-Tag: noindex, follow
+
+/printable-qr-code-sign.md
+  Content-Type: text/markdown; charset=utf-8
+  X-Robots-Tag: noindex, follow
+
+/calendar-event-qr-code-generator.md
+  Content-Type: text/markdown; charset=utf-8
+  X-Robots-Tag: noindex, follow
+
 /zh-Hans/index.md
   Content-Type: text/markdown; charset=utf-8
   X-Robots-Tag: noindex, follow
@@ -27,6 +43,22 @@
   X-Robots-Tag: noindex, follow
 
 /zh-Hans/qr-code-reader.md
+  Content-Type: text/markdown; charset=utf-8
+  X-Robots-Tag: noindex, follow
+
+/zh-Hans/bulk-qr-code-generator.md
+  Content-Type: text/markdown; charset=utf-8
+  X-Robots-Tag: noindex, follow
+
+/zh-Hans/qr-code-url-inspector.md
+  Content-Type: text/markdown; charset=utf-8
+  X-Robots-Tag: noindex, follow
+
+/zh-Hans/printable-qr-code-sign.md
+  Content-Type: text/markdown; charset=utf-8
+  X-Robots-Tag: noindex, follow
+
+/zh-Hans/calendar-event-qr-code-generator.md
   Content-Type: text/markdown; charset=utf-8
   X-Robots-Tag: noindex, follow
 
@@ -46,6 +78,22 @@
   Content-Type: text/markdown; charset=utf-8
   X-Robots-Tag: noindex, follow
 
+/zh-Hant/bulk-qr-code-generator.md
+  Content-Type: text/markdown; charset=utf-8
+  X-Robots-Tag: noindex, follow
+
+/zh-Hant/qr-code-url-inspector.md
+  Content-Type: text/markdown; charset=utf-8
+  X-Robots-Tag: noindex, follow
+
+/zh-Hant/printable-qr-code-sign.md
+  Content-Type: text/markdown; charset=utf-8
+  X-Robots-Tag: noindex, follow
+
+/zh-Hant/calendar-event-qr-code-generator.md
+  Content-Type: text/markdown; charset=utf-8
+  X-Robots-Tag: noindex, follow
+
 /ja/index.md
   Content-Type: text/markdown; charset=utf-8
   X-Robots-Tag: noindex, follow
@@ -59,6 +107,22 @@
   X-Robots-Tag: noindex, follow
 
 /ja/qr-code-reader.md
+  Content-Type: text/markdown; charset=utf-8
+  X-Robots-Tag: noindex, follow
+
+/ja/bulk-qr-code-generator.md
+  Content-Type: text/markdown; charset=utf-8
+  X-Robots-Tag: noindex, follow
+
+/ja/qr-code-url-inspector.md
+  Content-Type: text/markdown; charset=utf-8
+  X-Robots-Tag: noindex, follow
+
+/ja/printable-qr-code-sign.md
+  Content-Type: text/markdown; charset=utf-8
+  X-Robots-Tag: noindex, follow
+
+/ja/calendar-event-qr-code-generator.md
   Content-Type: text/markdown; charset=utf-8
   X-Robots-Tag: noindex, follow
 
@@ -78,6 +142,22 @@
   Content-Type: text/markdown; charset=utf-8
   X-Robots-Tag: noindex, follow
 
+/ko/bulk-qr-code-generator.md
+  Content-Type: text/markdown; charset=utf-8
+  X-Robots-Tag: noindex, follow
+
+/ko/qr-code-url-inspector.md
+  Content-Type: text/markdown; charset=utf-8
+  X-Robots-Tag: noindex, follow
+
+/ko/printable-qr-code-sign.md
+  Content-Type: text/markdown; charset=utf-8
+  X-Robots-Tag: noindex, follow
+
+/ko/calendar-event-qr-code-generator.md
+  Content-Type: text/markdown; charset=utf-8
+  X-Robots-Tag: noindex, follow
+
 /de-DE/index.md
   Content-Type: text/markdown; charset=utf-8
   X-Robots-Tag: noindex, follow
@@ -91,6 +171,22 @@
   X-Robots-Tag: noindex, follow
 
 /de-DE/qr-code-reader.md
+  Content-Type: text/markdown; charset=utf-8
+  X-Robots-Tag: noindex, follow
+
+/de-DE/bulk-qr-code-generator.md
+  Content-Type: text/markdown; charset=utf-8
+  X-Robots-Tag: noindex, follow
+
+/de-DE/qr-code-url-inspector.md
+  Content-Type: text/markdown; charset=utf-8
+  X-Robots-Tag: noindex, follow
+
+/de-DE/printable-qr-code-sign.md
+  Content-Type: text/markdown; charset=utf-8
+  X-Robots-Tag: noindex, follow
+
+/de-DE/calendar-event-qr-code-generator.md
   Content-Type: text/markdown; charset=utf-8
   X-Robots-Tag: noindex, follow
 
@@ -110,6 +206,22 @@
   Content-Type: text/markdown; charset=utf-8
   X-Robots-Tag: noindex, follow
 
+/fr-FR/bulk-qr-code-generator.md
+  Content-Type: text/markdown; charset=utf-8
+  X-Robots-Tag: noindex, follow
+
+/fr-FR/qr-code-url-inspector.md
+  Content-Type: text/markdown; charset=utf-8
+  X-Robots-Tag: noindex, follow
+
+/fr-FR/printable-qr-code-sign.md
+  Content-Type: text/markdown; charset=utf-8
+  X-Robots-Tag: noindex, follow
+
+/fr-FR/calendar-event-qr-code-generator.md
+  Content-Type: text/markdown; charset=utf-8
+  X-Robots-Tag: noindex, follow
+
 /es-ES/index.md
   Content-Type: text/markdown; charset=utf-8
   X-Robots-Tag: noindex, follow
@@ -123,5 +235,21 @@
   X-Robots-Tag: noindex, follow
 
 /es-ES/qr-code-reader.md
+  Content-Type: text/markdown; charset=utf-8
+  X-Robots-Tag: noindex, follow
+
+/es-ES/bulk-qr-code-generator.md
+  Content-Type: text/markdown; charset=utf-8
+  X-Robots-Tag: noindex, follow
+
+/es-ES/qr-code-url-inspector.md
+  Content-Type: text/markdown; charset=utf-8
+  X-Robots-Tag: noindex, follow
+
+/es-ES/printable-qr-code-sign.md
+  Content-Type: text/markdown; charset=utf-8
+  X-Robots-Tag: noindex, follow
+
+/es-ES/calendar-event-qr-code-generator.md
   Content-Type: text/markdown; charset=utf-8
   X-Robots-Tag: noindex, follow

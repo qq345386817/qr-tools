@@ -20,6 +20,10 @@ Die Kamera ist optional und erfordert eine Browserberechtigung auf HTTPS. Audio 
 
 - [WLAN-QR-Code-Generator](https://qrtools.luopeike.com/de-DE/wifi-qr-code-generator.md)
 - [Kontakt-QR-Code-Generator](https://qrtools.luopeike.com/de-DE/contact-qr-code-generator.md)
+- [QR-Codes aus CSV erstellen und Etiketten drucken](https://qrtools.luopeike.com/de-DE/bulk-qr-code-generator.md)
+- [QR-URL und Inhalt lokal prüfen](https://qrtools.luopeike.com/de-DE/qr-code-url-inspector.md)
+- [QR-Schilder für WLAN, Events und Menüs drucken](https://qrtools.luopeike.com/de-DE/printable-qr-code-sign.md)
+- [Kalendertermin als QR-Code und ICS erstellen](https://qrtools.luopeike.com/de-DE/calendar-event-qr-code-generator.md)
 
 ---
 

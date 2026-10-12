@@ -9,19 +9,25 @@ lucide/dist/esm/shared/src/utils/toPascalCase.mjs:
 lucide/dist/esm/replaceElement.mjs:
 lucide/dist/esm/icons/arrow-up-right.mjs:
 lucide/dist/esm/icons/brush-cleaning.mjs:
+lucide/dist/esm/icons/calendar-days.mjs:
 lucide/dist/esm/icons/camera-off.mjs:
 lucide/dist/esm/icons/camera.mjs:
 lucide/dist/esm/icons/copy.mjs:
 lucide/dist/esm/icons/download.mjs:
 lucide/dist/esm/icons/external-link.mjs:
+lucide/dist/esm/icons/file-down.mjs:
 lucide/dist/esm/icons/globe.mjs:
 lucide/dist/esm/icons/image-up.mjs:
+lucide/dist/esm/icons/layers.mjs:
+lucide/dist/esm/icons/maximize.mjs:
+lucide/dist/esm/icons/printer.mjs:
 lucide/dist/esm/icons/qr-code.mjs:
 lucide/dist/esm/icons/rotate-ccw.mjs:
 lucide/dist/esm/icons/scan-line.mjs:
 lucide/dist/esm/icons/share-2.mjs:
 lucide/dist/esm/icons/shield-check.mjs:
 lucide/dist/esm/icons/upload.mjs:
+lucide/dist/esm/icons/x.mjs:
 lucide/dist/esm/lucide.mjs:
   /**
    * @license lucide v1.55.0 - ISC

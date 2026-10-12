@@ -2,7 +2,7 @@
 
 > Free browser tools for static QR code generation and local QR image reading. Optional Safari and Chrome extensions provide current-tab QR codes.
 
-The website generates QR codes for URLs, text, Wi-Fi credentials, email, SMS and vCard 3.0 contacts. Users can change colors and error correction, export PNG or SVG, and read images or use a permitted camera. QR content, passwords and images are processed in the browser, without server upload, website accounts or saved history.
+The website generates QR codes for URLs, text, Wi-Fi credentials, email, SMS and vCard 3.0 contacts. Users can change colors and error correction, export PNG or SVG, and read images or use a permitted camera. CSV batches support up to 100 static QR labels, PNG/SVG ZIP downloads and eight-label A4/Letter printing. Printable Wi-Fi, event and menu-link signs support PNG and browser print-to-PDF. Local content inspection explains URL structure without a reputation or safety guarantee. Single events provide a Google Calendar template-link QR and a separate ICS download, with explicit time zones. QR content, passwords, CSV files and images are processed in the browser, without server upload, website accounts or saved history.
 
 Codes are static: encoded content does not update after distribution. This is not a hosted dynamic QR redirect or editable digital-profile service. Wi-Fi passwords and contact details can be read by anyone with the QR image. The website cannot inspect other browser tabs; that is an extension feature.
 
@@ -12,6 +12,10 @@ Codes are static: encoded content does not update after distribution. This is no
 - [Free Wi-Fi QR Code Generator for Guests](https://qrtools.luopeike.com/wifi-qr-code-generator.md): Create a Wi-Fi QR code for guests: network name, password, WPA/WPA2/WPA3 or WEP, open and hidden networks. Download PNG or SVG with no password upload.
 - [Free vCard QR Code Generator for Contact Cards](https://qrtools.luopeike.com/contact-qr-code-generator.md): Make a static vCard 3.0 contact QR code with name, phone, email, company and website. Export your contact card as PNG or SVG without an account.
 - [Free Online QR Code Reader for Images & Camera](https://qrtools.luopeike.com/qr-code-reader.md): Read QR codes from PNG, JPEG, GIF, WebP or BMP images, or use your camera. Decode locally, review the text and open links yourself. No image upload.
+- [Bulk QR Code Generator from CSV & Printable Labels](https://qrtools.luopeike.com/bulk-qr-code-generator.md): Bulk QR code generator from CSV: preview up to 100 labels, download PNG/SVG ZIP and print on A4 or Letter. Local processing without an account.
+- [QR Code URL Inspector & Local Content Check](https://qrtools.luopeike.com/qr-code-url-inspector.md): Inspect decoded QR contents and URL hostnames, protocols and parameters locally. Review suspicious structures before opening; no safety guarantee.
+- [Printable Wi-Fi, Event & Menu QR Code Signs](https://qrtools.luopeike.com/printable-qr-code-sign.md): Create printable guest Wi-Fi QR signs, event entry cards and menu-link signs. Add a title and note, save PNG or print to PDF without an account.
+- [Calendar Event QR Code Generator & ICS Download](https://qrtools.luopeike.com/calendar-event-qr-code-generator.md): Create a single-event Google Calendar link QR and download an ICS file for compatible calendars. Set start, end and time zone; no hosted event storage.
 
 ## Languages
 

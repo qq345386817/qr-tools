@@ -20,6 +20,10 @@ No. Genera otro QR con los datos nuevos. La imagen anterior conserva la contrase
 
 - [Generador de QR de contacto](https://qrtools.luopeike.com/es-ES/contact-qr-code-generator.md)
 - [Lector de códigos QR](https://qrtools.luopeike.com/es-ES/qr-code-reader.md)
+- [Generador QR por lotes desde CSV y etiquetas](https://qrtools.luopeike.com/es-ES/bulk-qr-code-generator.md)
+- [Examinar URL y contenido QR localmente](https://qrtools.luopeike.com/es-ES/qr-code-url-inspector.md)
+- [Carteles QR Wi-Fi, eventos y menús para imprimir](https://qrtools.luopeike.com/es-ES/printable-qr-code-sign.md)
+- [Generador QR de eventos y descarga ICS](https://qrtools.luopeike.com/es-ES/calendar-event-qr-code-generator.md)
 
 ---
 

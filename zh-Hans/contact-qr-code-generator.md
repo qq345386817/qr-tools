@@ -20,6 +20,10 @@
 
 - [Wi-Fi 二维码生成器](https://qrtools.luopeike.com/zh-Hans/wifi-qr-code-generator.md)
 - [二维码识别器](https://qrtools.luopeike.com/zh-Hans/qr-code-reader.md)
+- [CSV 批量二维码生成器与可打印标签](https://qrtools.luopeike.com/zh-Hans/bulk-qr-code-generator.md)
+- [二维码网址与内容本地检查工具](https://qrtools.luopeike.com/zh-Hans/qr-code-url-inspector.md)
+- [Wi-Fi、活动与菜单二维码展示牌](https://qrtools.luopeike.com/zh-Hans/printable-qr-code-sign.md)
+- [日历事件二维码生成器与 ICS 下载](https://qrtools.luopeike.com/zh-Hans/calendar-event-qr-code-generator.md)
 
 ---
 

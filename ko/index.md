@@ -25,6 +25,10 @@ PNG는 이미지 공유와 문서에, 크기를 바꿔도 선명한 SVG는 인�
 - [Wi-Fi QR 코드 생성기](https://qrtools.luopeike.com/ko/wifi-qr-code-generator.md)
 - [연락처 QR 코드 생성기](https://qrtools.luopeike.com/ko/contact-qr-code-generator.md)
 - [QR 코드 리더](https://qrtools.luopeike.com/ko/qr-code-reader.md)
+- [CSV 일괄 QR 코드 생성 및 라벨 인쇄](https://qrtools.luopeike.com/ko/bulk-qr-code-generator.md)
+- [QR 코드 URL 및 로컬 내용 확인](https://qrtools.luopeike.com/ko/qr-code-url-inspector.md)
+- [Wi-Fi·행사·메뉴 QR 안내판 만들기](https://qrtools.luopeike.com/ko/printable-qr-code-sign.md)
+- [캘린더 일정 QR 생성 및 ICS 다운로드](https://qrtools.luopeike.com/ko/calendar-event-qr-code-generator.md)
 
 ---
 
