@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
 import { parse } from 'parse5';
 import { locales, pages } from '../src/locales.mjs';
 import { legacyDescriptions } from '../src/legacy-seo.mjs';
@@ -91,5 +92,18 @@ test('localized error pages are not indexable and recover correctly from nested 
       assert.ok(path.startsWith('/'), `absolute recovery path in ${filename}`);
     }
     assert.ok(!sitemap.includes('404'));
+  }
+});
+
+test('tool pages identify the exact deployed CSS and JS content to avoid stale browser caches', async () => {
+  const fingerprint = async (path) => createHash('sha256').update(await readFile(path)).digest('hex').slice(0, 12);
+  const css = await fingerprint('style/tool.css');
+  const js = await fingerprint('script/tool.js');
+  for (const locale of Object.values(locales)) for (const page of pages) {
+    const html = parse(await readFile(`${locale.path}${page.slug || 'index'}.html`, 'utf8'));
+    const stylesheet = attribute(nodes(html, (node) => node.tagName === 'link' && attribute(node, 'rel') === 'stylesheet')[0], 'href');
+    const script = attribute(nodes(html, (node) => node.tagName === 'script' && attribute(node, 'type') === 'module')[0], 'src');
+    assert.ok(stylesheet.endsWith(`style/tool.css?v=${css}`));
+    assert.ok(script.endsWith(`script/tool.js?v=${js}`));
   }
 });

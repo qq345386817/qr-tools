@@ -1,6 +1,7 @@
 import { build } from 'esbuild';
 import { readFile, writeFile, mkdir, readdir, rm } from 'node:fs/promises';
 import { resolve } from 'node:path';
+import { createHash } from 'node:crypto';
 import { locales, pages, types } from '../src/locales.mjs';
 import { seo, notFound } from '../src/seo.mjs';
 import { updateLegacySeo } from './legacy-seo.mjs';
@@ -10,6 +11,9 @@ const origin = 'https://qrtools.luopeike.com';
 const escape = (value) => String(value).replace(/[&<>"']/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[character]));
 const icon = (name) => `<i data-lucide="${name}" aria-hidden="true"></i>`;
 const command = (id, name, text, className = '') => `<button id="${id}" class="${className}" type="button" title="${escape(text)}" aria-label="${escape(text)}">${icon(name)}${className.includes('icon-button') ? '' : `<span>${escape(text)}</span>`}</button>`;
+const version = async (file) => createHash('sha256').update(await readFile(resolve(root, file))).digest('hex').slice(0, 12);
+const scriptVersion = await buildAssets();
+const stylesheetVersion = await version('style/tool.css');
 
 function renderPage(code, locale, page) {
   const { ui, fields } = locale;
@@ -68,10 +72,10 @@ ${Object.entries(locales).map(([language, entry]) => `  <link rel="alternate" hr
   <link rel="icon" type="image/png" sizes="32x32" href="${prefix}favicon/favicon-32x32.png">
   <link rel="manifest" href="${prefix}favicon/site.webmanifest">
   <meta name="theme-color" content="#008f7c">
-  <link rel="stylesheet" href="${prefix}style/tool.css">
+  <link rel="stylesheet" href="${prefix}style/tool.css?v=${stylesheetVersion}">
   <script type="application/ld+json">${JSON.stringify(schema).replace(/</g, '\\u003c')}</script>
   <script id="page-data" type="application/json">${pageData}</script>
-  <script type="module" src="${prefix}script/tool.js"></script>
+  <script type="module" src="${prefix}script/tool.js?v=${scriptVersion}"></script>
 </head>
 <body>
   <header class="site-header"><div class="container header-inner">
@@ -144,7 +148,7 @@ for (const [code, locale] of Object.entries(locales)) {
   const [heading, message] = notFound[code];
   const recoveryLinks = pages.map((page) => `<a class="secondary-button" href="/${locale.path}${page.slug}">${escape(page.titleKey ? locale.ui[page.titleKey] : locale.title)}</a>`).join('');
   await writeFile(resolve(root, `${locale.path}404.html`), `<!DOCTYPE html>
-<html lang="${code}"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="robots" content="noindex,follow"><title>${escape(heading)} | QR Tools</title><link rel="icon" href="/favicon/favicon-32x32.png"><link rel="stylesheet" href="/style/tool.css"></head>
+<html lang="${code}"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="robots" content="noindex,follow"><title>${escape(heading)} | QR Tools</title><link rel="icon" href="/favicon/favicon-32x32.png"><link rel="stylesheet" href="/style/tool.css?v=${stylesheetVersion}"></head>
 <body><header class="site-header"><div class="container header-inner"><a class="brand" href="/${locale.path}"><img src="/favicon/apple-touch-icon.png" width="40" height="40" alt=""><span>QR Tools</span></a></div></header><main class="container not-found"><p>404</p><h1>${escape(heading)}</h1><p>${escape(message)}</p><div class="result-actions">${recoveryLinks}</div></main></body></html>\n`);
 }
 
@@ -187,16 +191,19 @@ const urls = new Set([...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) =
 for (const locale of Object.values(locales)) for (const page of pages) urls.add(`${origin}/${locale.path}${page.slug}`);
 await writeFile(resolve(root, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${[...urls].map((url) => `  <url><loc>${url}</loc></url>`).join('\n')}\n</urlset>\n`);
 
-const bundle = await build({ entryPoints: { tool: resolve(root, 'src/tool.mjs') }, outdir: resolve(root, 'script'), bundle: true, splitting: true, format: 'esm', platform: 'browser', target: ['safari15', 'chrome100'], minify: true, legalComments: 'linked', entryNames: '[name]', chunkNames: '[name]-[hash]', metafile: true });
-const currentOutputs = new Set(Object.keys(bundle.metafile.outputs).map((file) => resolve(file)));
-for (const file of await readdir(resolve(root, 'script'))) {
-  if (/^(?:reader|chunk)-[A-Z0-9]+\.js$/.test(file) && !currentOutputs.has(resolve(root, 'script', file))) {
-    await rm(resolve(root, 'script', file));
+async function buildAssets() {
+  const bundle = await build({ entryPoints: { tool: resolve(root, 'src/tool.mjs') }, outdir: resolve(root, 'script'), bundle: true, splitting: true, format: 'esm', platform: 'browser', target: ['safari15', 'chrome100'], minify: true, legalComments: 'linked', entryNames: '[name]', chunkNames: '[name]-[hash]', metafile: true });
+  const currentOutputs = new Set(Object.keys(bundle.metafile.outputs).map((file) => resolve(file)));
+  for (const file of await readdir(resolve(root, 'script'))) {
+    if (/^(?:reader|chunk)-[A-Z0-9]+\.js$/.test(file) && !currentOutputs.has(resolve(root, 'script', file))) {
+      await rm(resolve(root, 'script', file));
+    }
   }
+  const notices = [];
+  for (const [dependency, filename] of [['qrcode', 'license'], ['dijkstrajs', 'LICENSE.md'], ['jsqr', 'LICENSE'], ['lucide', 'LICENSE']]) {
+    notices.push(`${dependency}\n${await readFile(resolve(root, 'node_modules', dependency, filename), 'utf8')}`);
+  }
+  await writeFile(resolve(root, 'script/THIRD_PARTY_LICENSES.txt'), notices.join('\n\n'));
+  return version('script/tool.js');
 }
-const notices = [];
-for (const [dependency, filename] of [['qrcode', 'license'], ['dijkstrajs', 'LICENSE.md'], ['jsqr', 'LICENSE'], ['lucide', 'LICENSE']]) {
-  notices.push(`${dependency}\n${await readFile(resolve(root, 'node_modules', dependency, filename), 'utf8')}`);
-}
-await writeFile(resolve(root, 'script/THIRD_PARTY_LICENSES.txt'), notices.join('\n\n'));
 console.log(`Built ${Object.keys(locales).length * pages.length} localized tools; ${urls.size} sitemap URLs.`);
