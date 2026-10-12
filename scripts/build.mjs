@@ -5,6 +5,7 @@ import { createHash } from 'node:crypto';
 import { locales, pages, types } from '../src/locales.mjs';
 import { seo, notFound } from '../src/seo.mjs';
 import { updateLegacySeo } from './legacy-seo.mjs';
+import { workflowPanels } from '../src/workflow-markup.mjs';
 
 const root = resolve(import.meta.dirname, '..');
 const origin = 'https://qrtools.luopeike.com';
@@ -16,7 +17,7 @@ const scriptVersion = await buildAssets();
 const stylesheetVersion = await version('style/tool.css');
 
 function renderPage(code, locale, page) {
-  const { ui, fields } = locale;
+  const { ui, fields, extra } = locale;
   const prefix = locale.path ? '../' : '';
   const url = `${origin}/${locale.path}${page.slug}`;
   const title = page.titleKey ? ui[page.titleKey] : locale.title;
@@ -47,7 +48,7 @@ function renderPage(code, locale, page) {
     { '@type': 'WebPage', '@id': `${url}#page`, name: content.title, url, description: content.description, inLanguage: code, isPartOf: { '@id': `${origin}/#website` }, mainEntity: { '@id': `${url}#tool` } },
     { '@type': 'WebApplication', '@id': `${url}#tool`, name: `QR Tools: ${title}`, url, applicationCategory: 'UtilitiesApplication', operatingSystem: 'Any', browserRequirements: 'Requires JavaScript', inLanguage: code, isAccessibleForFree: true, offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' }, description: content.description },
   ] };
-  const pageData = JSON.stringify({ code, ui, messages: locale.messages, defaultType: selected, defaultMode: page.mode }).replace(/</g, '\\u003c');
+  const pageData = JSON.stringify({ code, ui, fields, extra, contentTypes: Object.fromEntries(types.map((type, index) => [type, locale.types[index]])), messages: locale.messages, defaultType: selected, defaultMode: page.mode }).replace(/</g, '\\u003c');
   return `<!DOCTYPE html>
 <html lang="${code}">
 <head>
@@ -89,8 +90,9 @@ ${copy ? `    <p class="page-summary">${escape(copy)}</p>` : ''}
     <div class="mode-switch" role="tablist" aria-label="QR Tools">
       <button id="mode-create" role="tab" aria-selected="${page.mode === 'create'}" aria-controls="create-panel" tabindex="${page.mode === 'create' ? '0' : '-1'}" type="button">${icon('qr-code')}${escape(ui.create)}</button>
       <button id="mode-read" role="tab" aria-selected="${page.mode === 'read'}" aria-controls="read-panel" tabindex="${page.mode === 'read' ? '0' : '-1'}" type="button">${icon('scan-line')}${escape(ui.read)}</button>
+      ${[['batch', 'layers'], ['sign', 'printer'], ['calendar', 'calendar-days']].map(([mode, name]) => `<button id="mode-${mode}" role="tab" aria-selected="${page.mode === mode}" aria-controls="${mode}-panel" tabindex="${page.mode === mode ? '0' : '-1'}" type="button">${icon(name)}${escape(extra[mode])}</button>`).join('')}
     </div>
-    <section id="create-panel" role="tabpanel" aria-labelledby="mode-create" ${page.mode === 'read' ? 'hidden' : ''}>
+    <section id="create-panel" role="tabpanel" aria-labelledby="mode-create" ${page.mode !== 'create' ? 'hidden' : ''}>
       <div class="workspace">
         <div class="editor">
           <div class="content-tabs" role="tablist" aria-label="${escape(ui.create)}">${types.map((type, index) => `<button type="button" role="tab" id="tab-${type}" data-type="${type}" aria-selected="${type === selected}" aria-controls="form-${type}" tabindex="${type === selected ? '0' : '-1'}">${escape(locale.types[index])}</button>`).join('')}</div>
@@ -117,11 +119,13 @@ ${copy ? `    <p class="page-summary">${escape(copy)}</p>` : ''}
           <div class="camera-actions">${command('start-camera', 'camera', ui.camera, 'secondary-button')}${command('stop-camera', 'camera-off', ui.stopCamera, 'secondary-button')}</div>
           <video id="camera-video" playsinline muted hidden></video><p id="reader-status" class="status" role="status" aria-live="polite"></p>
         </div>
-        <div class="reader-result"><label class="field"><span>${escape(ui.result)}</span><textarea id="decoded-content" readonly rows="8" spellcheck="false"></textarea></label>
+        <div class="reader-result"><details id="raw-details" open><summary>${escape(extra.raw)}</summary><label class="field"><span>${escape(ui.result)}</span><textarea id="decoded-content" rows="6" spellcheck="false" maxlength="16000"></textarea></label></details>
+          ${command('inspect-content', 'scan-line', extra.check, 'secondary-button')}<section id="inspection" hidden><h2>${escape(extra.details)}</h2><dl id="inspection-fields"></dl><ul id="inspection-warnings"></ul><p class="inspection-note">${escape(extra.localCheck)}</p><div class="checkbox-row"><label id="confirm-link-label" hidden><input id="confirm-link" type="checkbox">${escape(extra.confirmLink)}</label></div></section>
           <div class="result-actions">${command('copy-content', 'copy', ui.copyContent, 'secondary-button')}<a id="open-link" class="secondary-button" href="#" target="_blank" rel="noopener noreferrer" hidden>${icon('external-link')}${escape(ui.openLink)}</a>${command('use-content', 'qr-code', ui.useContent, 'secondary-button')}</div>
         </div>
       </div>
     </section>
+    ${workflowPanels(locale, extra, page.mode, { escape, icon, command })}
     <p class="privacy-note">${icon('shield-check')}${escape(ui.localPrivacy)}</p>
     <section class="app-band"><img src="${prefix}favicon/apple-touch-icon.png" width="48" height="48" alt="QR Tools"><div><h2>${escape(ui.appTitle)}</h2><p>${escape(ui.appCopy)}</p></div><a class="secondary-button" href="https://apps.apple.com/app/id6526476285"><img src="${prefix}images/app-store-icon.svg" width="20" height="20" alt="">App Store</a></section>
     <section class="qr-questions" aria-labelledby="questions-heading"><h2 id="questions-heading">${escape(seo[code].faqHeading)}</h2>${content.questions.map(([question, answer]) => `<details><summary>${escape(question)}</summary><p>${escape(answer)}</p></details>`).join('')}</section>
@@ -160,7 +164,7 @@ const llms = `# QR Tools
 
 > Free browser tools for static QR code generation and local QR image reading. Optional Safari and Chrome extensions provide current-tab QR codes.
 
-The website generates QR codes for URLs, text, Wi-Fi credentials, email, SMS and vCard 3.0 contacts. Users can change colors and error correction, export PNG or SVG, and read images or use a permitted camera. QR content, passwords and images are processed in the browser, without server upload, website accounts or saved history.
+The website generates QR codes for URLs, text, Wi-Fi credentials, email, SMS and vCard 3.0 contacts. Users can change colors and error correction, export PNG or SVG, and read images or use a permitted camera. CSV batches support up to 100 static QR labels, PNG/SVG ZIP downloads and eight-label A4/Letter printing. Printable Wi-Fi, event and menu-link signs support PNG and browser print-to-PDF. Local content inspection explains URL structure without a reputation or safety guarantee. Single events provide a Google Calendar template-link QR and a separate ICS download, with explicit time zones. QR content, passwords, CSV files and images are processed in the browser, without server upload, website accounts or saved history.
 
 Codes are static: encoded content does not update after distribution. This is not a hosted dynamic QR redirect or editable digital-profile service. Wi-Fi passwords and contact details can be read by anyone with the QR image. The website cannot inspect other browser tabs; that is an extension feature.
 
@@ -195,14 +199,18 @@ async function buildAssets() {
   const bundle = await build({ entryPoints: { tool: resolve(root, 'src/tool.mjs') }, outdir: resolve(root, 'script'), bundle: true, splitting: true, format: 'esm', platform: 'browser', target: ['safari15', 'chrome100'], minify: true, legalComments: 'linked', entryNames: '[name]', chunkNames: '[name]-[hash]', metafile: true });
   const currentOutputs = new Set(Object.keys(bundle.metafile.outputs).map((file) => resolve(file)));
   for (const file of await readdir(resolve(root, 'script'))) {
-    if (/^(?:reader|chunk)-[A-Z0-9]+\.js$/.test(file) && !currentOutputs.has(resolve(root, 'script', file))) {
+    if (/^[a-z-]+-[A-Z0-9]+\.js(?:\.LEGAL\.txt)?$/.test(file) && !currentOutputs.has(resolve(root, 'script', file))) {
       await rm(resolve(root, 'script', file));
     }
   }
   const notices = [];
-  for (const [dependency, filename] of [['qrcode', 'license'], ['dijkstrajs', 'LICENSE.md'], ['jsqr', 'LICENSE'], ['lucide', 'LICENSE']]) {
+  for (const [dependency, filename] of [['qrcode', 'license'], ['dijkstrajs', 'LICENSE.md'], ['jsqr', 'LICENSE'], ['lucide', 'LICENSE'], ['papaparse', 'LICENSE'], ['fflate', 'LICENSE'], ['luxon', 'LICENSE.md'], ['ics', 'LICENSE'], ['nanoid', 'LICENSE'], ['yup', 'LICENSE.md'], ['property-expr', 'LICENSE.txt'], ['runes2', 'LICENSE'], ['toposort', 'License']]) {
     notices.push(`${dependency}\n${await readFile(resolve(root, 'node_modules', dependency, filename), 'utf8')}`);
   }
+  // tiny-case omits its license file, but declares MIT and its author in package.json.
+  const tinyCase = JSON.parse(await readFile(resolve(root, 'node_modules/tiny-case/package.json'), 'utf8'));
+  const mitText = await readFile(resolve(root, 'node_modules/yup/LICENSE.md'), 'utf8');
+  notices.push(`${tinyCase.name}\n${tinyCase.repository.url}\nLicense: ${tinyCase.license}\nCopyright (c) ${tinyCase.author}\n\n${mitText.slice(mitText.indexOf('Permission is hereby granted'))}`);
   await writeFile(resolve(root, 'script/THIRD_PARTY_LICENSES.txt'), notices.join('\n\n'));
   return version('script/tool.js');
 }

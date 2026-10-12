@@ -34,8 +34,9 @@ test('each localized tool has canonical HTML, matching agent content and valid l
     assert.ok(sitemap.includes(`<loc>${canonical}</loc>`));
     assert.ok(!sitemap.includes(markdownUrl));
     const markdown = await readFile(`${filename}.md`, 'utf8');
-    const summaries = nodes(html, (node) => node.tagName === 'summary').map(text);
-    const answers = nodes(html, (node) => node.tagName === 'details').flatMap((node) => nodes(node, (child) => child.tagName === 'p')).map(text);
+    const questions = nodes(html, (node) => node.tagName === 'section' && attribute(node, 'class') === 'qr-questions')[0];
+    const summaries = nodes(questions, (node) => node.tagName === 'summary').map(text);
+    const answers = nodes(questions, (node) => node.tagName === 'details').flatMap((node) => nodes(node, (child) => child.tagName === 'p')).map(text);
     assert.ok(summaries.length >= 3, `${filename} has useful visible questions`);
     for (const value of [...summaries, ...answers]) assert.ok(markdown.includes(value), `${filename}: agent and visible content agree`);
     const graph = JSON.parse(text(nodes(html, (node) => node.tagName === 'script' && attribute(node, 'type') === 'application/ld+json')[0]))['@graph'];

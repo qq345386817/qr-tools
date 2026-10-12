@@ -6,12 +6,37 @@ Deploy this directory as the document root for:
 
 ## Online Tools
 
-The homepage and three dedicated tools are generated in all eight site languages:
+The homepage and seven dedicated tools are generated in all eight site languages:
 
 - `/`: link, text, Wi-Fi, email, SMS and vCard generation
 - `/wifi-qr-code-generator`: Wi-Fi generator
 - `/contact-qr-code-generator`: vCard generator
 - `/qr-code-reader`: local image and camera decoding
+- `/bulk-qr-code-generator`: CSV batches, PNG/SVG ZIP and A4/Letter label printing
+- `/qr-code-url-inspector`: local structure checks, not site reputation checks
+- `/printable-qr-code-sign`: guest Wi-Fi, event and menu-link signs
+- `/calendar-event-qr-code-generator`: Google Calendar template QR and ICS download
+
+CSV input uses exactly two headers, `name,content`. Batches are limited to 100
+codes and 1 MB of input. Invalid rows stay visible; only valid rows are exported.
+Filenames have unique numeric prefixes and sanitized names. Each label sheet
+contains eight 38 mm QR images. Codes above QR version 17 cannot use this small
+label layout; download the images or shorten their content. Test physical scans
+before distributing printed output. Print/PDF uses the browser print dialog.
+
+URL inspection displays actual hostnames, parameters and local warning signs.
+It does not contact a reputation API or certify a link as safe. Links require
+explicit destination confirmation; credential-bearing and non-HTTP(S) URLs are
+not opened. Wi-Fi passwords and raw scanned Wi-Fi contents are collapsed by
+default, but remain available through explicit controls and copy/export actions.
+
+Event times require an explicit IANA time zone. Nonexistent or repeated local
+times during DST changes are rejected; the user can choose another time or UTC.
+QR codes point to a Google Calendar event-entry template, not a saved event.
+The separate ICS uses equivalent UTC instants and can be imported into compatible
+calendars. Event content is present in the QR and ICS. Opening the Google link
+sends it to Google, so no external calendar opens without a user click. No local
+`blob:` URL is distributed as a cross-device event link.
 
 QR input, passwords and images are processed in the browser. There is no account,
 server upload, analytics event containing QR content, or persistent history.
@@ -33,7 +58,10 @@ npm test
 `src/locales.mjs` owns localized labels and page metadata. `scripts/build.mjs`
 generates the tool pages and adds their clean canonical URLs to `sitemap.xml`.
 The QR encoder and image decoder are bundled locally; reading loads the decoder
-only when needed. Dependency versions are locked in `package-lock.json`.
+only when needed. Batch, print and calendar code loads on first use of an advanced
+tool. Dependency versions are locked in `package-lock.json`. CSV parsing uses
+Papa Parse, ZIP creation uses fflate, and timezone/calendar handling uses Luxon
+and ics. Bundled license notices are in `script/THIRD_PARTY_LICENSES.txt`.
 
 ## Search and AI Content
 

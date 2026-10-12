@@ -1,3 +1,5 @@
+import { workflowLocales, workflowSeo } from './workflow-locales.mjs';
+
 const fieldKeys = ['url', 'text', 'ssid', 'password', 'encryption', 'hidden', 'email', 'subject', 'body', 'phone', 'message', 'firstName', 'lastName', 'company', 'website'];
 const uiKeys = ['create', 'read', 'clean', 'customize', 'foreground', 'background', 'correction', 'high', 'medium', 'low', 'size', 'png', 'svg', 'copy', 'share', 'reset', 'ready', 'empty', 'help', 'support', 'privacy', 'language', 'chooseImage', 'camera', 'stopCamera', 'result', 'openLink', 'useContent', 'showPassword', 'openNetwork', 'appTitle', 'appCopy', 'chrome', 'localPrivacy', 'guides', 'wifiTitle', 'contactTitle', 'readerTitle', 'wifiCopy', 'contactCopy', 'readerCopy', 'required', 'notSupported', 'dropImage'];
 const messageKeys = ['invalidLink', 'invalidEmail', 'invalidPhone', 'contrast', 'tooLong', 'cleaned', 'noTracking', 'copied', 'copyFailed', 'exportFailed', 'largeFile', 'imageOnly', 'notFound', 'reading', 'found', 'cameraFailed', 'cameraUnavailable', 'cameraActive', 'shareFailed'];
@@ -76,7 +78,7 @@ const definitions = {
 export const types = ['link', 'text', 'wifi', 'email', 'sms', 'contact'];
 const copyContent = { en: 'Copy content', 'zh-Hans': '复制内容', 'zh-Hant': '複製內容', ja: '内容をコピー', ko: '내용 복사', de: 'Inhalt kopieren', fr: 'Copier le contenu', es: 'Copiar contenido' };
 export const locales = Object.fromEntries(Object.entries(definitions).map(([code, data]) => [code, {
-  ...data, fields: makeMap(fieldKeys, data.fields), ui: { ...makeMap(uiKeys, data.ui), copyContent: copyContent[code] }, messages: makeMap(messageKeys, data.messages),
+  ...data, extra: workflowLocales[code], fields: makeMap(fieldKeys, data.fields), ui: { ...makeMap(uiKeys, data.ui), copyContent: copyContent[code], ...Object.fromEntries(Object.entries(workflowSeo[code]).map(([key, value]) => [`${key}Title`, value.title])) }, messages: makeMap(messageKeys, data.messages),
 }]));
 
 export const pages = [
@@ -84,4 +86,8 @@ export const pages = [
   { slug: 'wifi-qr-code-generator', type: 'wifi', mode: 'create', titleKey: 'wifiTitle', copyKey: 'wifiCopy', seoKey: 'wifi' },
   { slug: 'contact-qr-code-generator', type: 'contact', mode: 'create', titleKey: 'contactTitle', copyKey: 'contactCopy', seoKey: 'contact' },
   { slug: 'qr-code-reader', type: 'link', mode: 'read', titleKey: 'readerTitle', copyKey: 'readerCopy', seoKey: 'reader' },
+  { slug: 'bulk-qr-code-generator', type: 'link', mode: 'batch', titleKey: 'batchTitle', seoKey: 'batch' },
+  { slug: 'qr-code-url-inspector', type: 'link', mode: 'read', titleKey: 'inspectTitle', seoKey: 'inspect' },
+  { slug: 'printable-qr-code-sign', type: 'link', mode: 'sign', titleKey: 'signTitle', seoKey: 'sign' },
+  { slug: 'calendar-event-qr-code-generator', type: 'link', mode: 'calendar', titleKey: 'calendarTitle', seoKey: 'calendar' },
 ];

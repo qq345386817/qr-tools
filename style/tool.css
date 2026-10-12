@@ -24,7 +24,7 @@ h1 { font-size: 36px; line-height: 1.2; margin: 0 0 18px; font-weight: 700; over
 h2 { font-size: 19px; margin: 0; line-height: 1.35; }
 .home-link { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--muted); }
 .page-summary { max-width: 850px; margin: 0 0 18px; color: var(--muted); }
-.mode-switch { display: flex; gap: 6px; margin-bottom: 24px; }
+.mode-switch { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 24px; }
 .mode-switch button { min-height: 44px; display: flex; gap: 9px; align-items: center; padding: 10px 20px; border-radius: 6px; background: var(--soft); font-weight: 600; }
 .mode-switch button[aria-selected="true"] { background: var(--accent); color: #fff; }
 .workspace { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(300px, 1fr); gap: 36px; align-items: start; }
@@ -102,6 +102,33 @@ video { width: 100%; max-height: 360px; object-fit: cover; margin-top: 16px; bor
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 .not-found { padding-block: 64px; }
 .not-found > p { color: var(--muted); }
+.batch-input { max-width: 900px; }
+.batch-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 18px 0; }
+.paper-control { width: 130px; margin: 0; }
+.table-scroll { width: 100%; overflow: auto; }
+.table-scroll table { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: 14px; }
+.table-scroll th, .table-scroll td { padding: 10px 12px; text-align: left; vertical-align: middle; border-bottom: 1px solid var(--line); overflow-wrap: anywhere; }
+.table-scroll th { background: var(--soft); font-weight: 600; }
+.table-scroll th:first-child { width: 90px; }
+.table-scroll th:last-child { width: 150px; }
+.table-scroll td img { display: block; width: 64px; height: 64px; }
+.invalid-row { color: var(--error); }
+.sign-preview { display: block; width: min(100%, 320px); height: auto; aspect-ratio: 3 / 4; margin: auto; border: 1px solid var(--line); }
+#sign-dialog { width: 100vw; height: 100vh; height: 100dvh; max-width: 100vw; max-height: 100vh; max-height: 100dvh; margin: 0; padding: 20px; border: 0; background: #fff; }
+#sign-dialog:not([open]) { display: none; }
+#sign-dialog::backdrop { background: #fff; }
+#sign-dialog img { display: block; max-width: 100%; height: 100%; object-fit: contain; margin: auto; }
+#close-sign { position: absolute; right: 14px; top: 14px; background: #fff; z-index: 2; }
+.reader-result > details { margin-bottom: 12px; }
+.reader-result > details > summary { cursor: pointer; margin-bottom: 12px; font-weight: 500; }
+#inspection { margin-top: 18px; }
+#inspection h2 { font-size: 16px; }
+#inspection-fields { display: grid; grid-template-columns: minmax(90px, 1fr) minmax(0, 2fr); font-size: 14px; }
+#inspection-fields dt, #inspection-fields dd { margin: 0; padding: 8px 0; border-bottom: 1px solid var(--line); overflow-wrap: anywhere; white-space: pre-wrap; }
+#inspection-fields dt { color: var(--muted); padding-right: 12px; }
+#inspection-fields summary { color: var(--accent); cursor: pointer; }
+#inspection-warnings { color: var(--error); padding-left: 20px; font-size: 14px; }
+.inspection-note { color: var(--muted); font-size: 13px; }
 @media (max-width: 950px) {
   .workspace { gap: 24px; grid-template-columns: minmax(0, 1.35fr) minmax(280px, 1fr); }
   .preview-panel { padding-left: 24px; }
@@ -112,6 +139,8 @@ video { width: 100%; max-height: 360px; object-fit: cover; margin-top: 16px; bor
   .icon-button { width: 42px; }
 }
 @media (max-width: 720px) {
+  .mode-switch button { padding-inline: 12px; font-size: 14px; }
+  .table-scroll table { min-width: 540px; }
   .container { width: calc(100% - 32px); }
   .header-inner { min-height: 70px; flex-wrap: wrap; padding: 12px 0; gap: 10px; }
   .brand { font-size: 20px; }

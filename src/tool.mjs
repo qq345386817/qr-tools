@@ -1,11 +1,12 @@
 import QRCode from 'qrcode';
-import { createIcons, ArrowUpRight, BrushCleaning, Camera, CameraOff, Copy, Download, ExternalLink, Globe, ImageUp, QrCode, RotateCcw, ScanLine, Share2, ShieldCheck, Upload } from 'lucide';
-import { cleanLink, contrastRatio, makePayload, safeWebLink } from './content.mjs';
+import { createIcons, ArrowUpRight, BrushCleaning, CalendarDays, Camera, CameraOff, Copy, Download, ExternalLink, FileDown, Globe, ImageUp, Layers, Maximize, Printer, QrCode, RotateCcw, ScanLine, Share2, ShieldCheck, Upload, X } from 'lucide';
+import { cleanLink, contrastRatio, makePayload } from './content.mjs';
+import { inspectContent } from './inspection.mjs';
 
 const data = JSON.parse(document.getElementById('page-data').textContent);
 const { ui, messages } = data;
 const $ = (id) => document.getElementById(id);
-createIcons({ icons: { ArrowUpRight, BrushCleaning, Camera, CameraOff, Copy, Download, ExternalLink, Globe, ImageUp, QrCode, RotateCcw, ScanLine, Share2, ShieldCheck, Upload } });
+createIcons({ icons: { ArrowUpRight, BrushCleaning, CalendarDays, Camera, CameraOff, Copy, Download, ExternalLink, FileDown, Globe, ImageUp, Layers, Maximize, Printer, QrCode, RotateCcw, ScanLine, Share2, ShieldCheck, Upload, X } });
 
 let type = data.defaultType;
 let mode = data.defaultMode;
@@ -17,6 +18,8 @@ let cameraRevision = 0;
 let readerRevision = 0;
 let scanTimer;
 let isReading = false;
+let workflowsReady;
+const modes = ['create', 'read', 'batch', 'sign', 'calendar'];
 const exportButtons = document.querySelectorAll('.export');
 const cameraVideo = $('camera-video');
 const scratchCanvas = document.createElement('canvas');
@@ -228,26 +231,63 @@ function changeMode(next) {
   mode = next;
   ++readerRevision;
   if (mode !== 'read') stopCamera();
-  for (const item of ['create', 'read']) {
+  for (const item of modes) {
     $(`mode-${item}`).setAttribute('aria-selected', mode === item);
     $(`mode-${item}`).tabIndex = mode === item ? 0 : -1;
     $(`${item}-panel`).hidden = mode !== item;
   }
+  if (['batch', 'sign', 'calendar'].includes(next) && !workflowsReady) {
+    workflowsReady = import('./workflows.mjs').then(({ initWorkflows }) => initWorkflows(data)).catch(() => {
+      workflowsReady = null;
+      for (const item of ['batch', 'sign', 'calendar']) {
+        $(`${item}-status`).textContent = messages.exportFailed;
+        $(`${item}-status`).classList.add('error');
+      }
+    });
+  }
 }
-$('mode-create').addEventListener('click', () => changeMode('create'));
-$('mode-read').addEventListener('click', () => changeMode('read'));
+for (const item of modes) $(`mode-${item}`).addEventListener('click', () => changeMode(item));
 $('stop-camera').addEventListener('click', () => { stopCamera(); readStatus(''); });
 document.addEventListener('visibilitychange', () => { if (document.hidden) stopCamera(); });
 window.addEventListener('pagehide', stopCamera);
 
+function showInspection(value) {
+  const inspection = inspectContent(value);
+  const { extra: x, fields } = data;
+  $('inspection').hidden = !value.trim();
+  $('inspection-fields').replaceChildren();
+  $('inspection-warnings').replaceChildren();
+  const addField = (label, value, secret = false) => {
+    const dt = document.createElement('dt'), dd = document.createElement('dd');
+    dt.textContent = label;
+    if (secret) {
+      const details = document.createElement('details'), summary = document.createElement('summary'), text = document.createElement('span');
+      summary.textContent = ui.showPassword;
+      text.textContent = value;
+      details.append(summary, text); dd.append(details);
+    } else dd.textContent = value;
+    $('inspection-fields').append(dt, dd);
+  };
+  addField(x.contentType, data.contentTypes[inspection.type]);
+  for (const field of inspection.fields) addField(`${fields[field.label] || x[field.label]}${field.name ? `: ${field.name}` : ''}`, field.value, field.secret);
+  for (const warning of inspection.warnings) { const li = document.createElement('li'); li.textContent = x[warning]; $('inspection-warnings').append(li); }
+  $('confirm-link').checked = false;
+  $('confirm-link-label').hidden = !inspection.link;
+  $('open-link').hidden = true;
+  $('open-link').removeAttribute('href');
+  if (inspection.link) $('open-link').href = inspection.link;
+  $('copy-content').disabled = !value.trim();
+  $('use-content').disabled = !value.trim();
+  return inspection;
+}
+$('confirm-link').addEventListener('change', (event) => { $('open-link').hidden = !event.target.checked || !$('open-link').hasAttribute('href'); });
+$('decoded-content').addEventListener('input', () => { ++readerRevision; stopCamera(); showInspection($('decoded-content').value); });
+$('inspect-content').addEventListener('click', () => showInspection($('decoded-content').value));
 function showResult(value) {
   stopCamera();
   $('decoded-content').value = value;
-  $('copy-content').disabled = false;
-  $('use-content').disabled = false;
-  const link = safeWebLink(value);
-  $('open-link').hidden = !link;
-  $('open-link').href = link || '#';
+  const inspection = showInspection(value);
+  $('raw-details').open = inspection.type !== 'wifi';
   readStatus(messages.found);
 }
 async function processFile(file) {
@@ -256,6 +296,7 @@ async function processFile(file) {
   isReading = true;
   const revision = ++readerRevision;
   $('decoded-content').value = '';
+  showInspection('');
   $('copy-content').disabled = true;
   $('use-content').disabled = true;
   $('open-link').hidden = true;
@@ -329,3 +370,4 @@ if (!navigator.mediaDevices?.getUserMedia) {
   $('start-camera').title = ui.notSupported;
 }
 render();
+changeMode(data.defaultMode);

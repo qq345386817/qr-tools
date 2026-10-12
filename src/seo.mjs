@@ -1,3 +1,5 @@
+import { workflowSeo } from './workflow-locales.mjs';
+
 export const notFound = {
   en: ['Page not found', 'This page is not available. Continue with a QR tool below.'],
   'zh-Hans': ['页面不存在', '该页面不可用。请继续使用下方的二维码工具。'],
@@ -339,3 +341,5 @@ export const seo = {
     },
   },
 };
+
+for (const [code, content] of Object.entries(workflowSeo)) Object.assign(seo[code], content);
