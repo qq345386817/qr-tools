@@ -4,6 +4,41 @@ Deploy this directory as the document root for:
 
 `https://qrtools.luopeike.com`
 
+## Online Tools
+
+The homepage and three dedicated tools are generated in all eight site languages:
+
+- `/`: link, text, Wi-Fi, email, SMS and vCard generation
+- `/wifi-qr-code-generator`: Wi-Fi generator
+- `/contact-qr-code-generator`: vCard generator
+- `/qr-code-reader`: local image and camera decoding
+
+QR input, passwords and images are processed in the browser. There is no account,
+server upload, analytics event containing QR content, or persistent history.
+Camera access is optional and starts only after a user clicks its button. Camera
+tracks stop when the user changes modes, hides the tab, leaves the page, or a code
+is found. Clipboard and file sharing depend on browser support; PNG/SVG download
+is available independently.
+
+The committed HTML and `script/` bundles can be served directly by Cloudflare
+Pages. No build step is required on the host. To regenerate them after editing
+`src/`, use Node.js 22 or later:
+
+```sh
+npm ci
+npm run build
+npm test
+```
+
+`src/locales.mjs` owns localized labels and page metadata. `scripts/build.mjs`
+generates the tool pages and adds their clean canonical URLs to `sitemap.xml`.
+The QR encoder and image decoder are bundled locally; reading loads the decoder
+only when needed. Dependency versions are locked in `package-lock.json`.
+
+For a local preview, run `npm run dev` and open `http://127.0.0.1:4173`. Set `PORT`
+to another value if that port is occupied. This preview server emulates clean
+Cloudflare page routes and is for local development only.
+
 ## Redirects
 
 The previous public path was:
