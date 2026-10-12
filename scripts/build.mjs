@@ -2,7 +2,7 @@ import { build } from 'esbuild';
 import { readFile, writeFile, mkdir, readdir, rm } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { locales, pages, types } from '../src/locales.mjs';
-import { seo } from '../src/seo.mjs';
+import { seo, notFound } from '../src/seo.mjs';
 import { updateLegacySeo } from './legacy-seo.mjs';
 
 const root = resolve(import.meta.dirname, '..');
@@ -141,6 +141,11 @@ for (const [code, locale] of Object.entries(locales)) {
     const markdown = `# ${content.title}\n\n${content.description}\n\n[${page.titleKey ? locale.ui[page.titleKey] : locale.title}](${canonical})\n\n${content.questions.map(([question, answer]) => `## ${question}\n\n${answer}`).join('\n\n')}\n\n## ${locale.ui.guides}\n\n${related}\n\n---\n\nQR Tools: ${origin}/\nCanonical page: ${canonical}\nLanguage: ${code}\n`;
     await writeFile(resolve(root, `${locale.path}${page.slug || 'index'}.md`), markdown);
   }
+  const [heading, message] = notFound[code];
+  const recoveryLinks = pages.map((page) => `<a class="secondary-button" href="/${locale.path}${page.slug}">${escape(page.titleKey ? locale.ui[page.titleKey] : locale.title)}</a>`).join('');
+  await writeFile(resolve(root, `${locale.path}404.html`), `<!DOCTYPE html>
+<html lang="${code}"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="robots" content="noindex,follow"><title>${escape(heading)} | QR Tools</title><link rel="icon" href="/favicon/favicon-32x32.png"><link rel="stylesheet" href="/style/tool.css"></head>
+<body><header class="site-header"><div class="container header-inner"><a class="brand" href="/${locale.path}"><img src="/favicon/apple-touch-icon.png" width="40" height="40" alt=""><span>QR Tools</span></a></div></header><main class="container not-found"><p>404</p><h1>${escape(heading)}</h1><p>${escape(message)}</p><div class="result-actions">${recoveryLinks}</div></main></body></html>\n`);
 }
 
 await updateLegacySeo(root, locales, pages, escape);

@@ -79,3 +79,17 @@ test('legacy help, support and privacy keep canonical URLs, email protection and
     if (slug !== 'help') assert.ok(source.includes('<!--email_off-->'));
   }
 });
+
+test('localized error pages are not indexable and recover correctly from nested URLs', async () => {
+  const sitemap = await readFile('sitemap.xml', 'utf8');
+  for (const locale of Object.values(locales)) {
+    const filename = `${locale.path}404.html`;
+    const html = parse(await readFile(filename, 'utf8'));
+    assert.equal(attribute(nodes(html, (node) => node.tagName === 'meta' && attribute(node, 'name') === 'robots')[0], 'content'), 'noindex,follow');
+    for (const node of nodes(html, (node) => node.tagName === 'a' || node.tagName === 'img' || node.tagName === 'link')) {
+      const path = attribute(node, 'href') || attribute(node, 'src');
+      assert.ok(path.startsWith('/'), `absolute recovery path in ${filename}`);
+    }
+    assert.ok(!sitemap.includes('404'));
+  }
+});

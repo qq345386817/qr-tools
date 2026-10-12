@@ -58,6 +58,11 @@ started a validation request for them. Do not remove the correct redirects just
 to make that report empty. The historical Cloudflare email-protection URL is
 not a content page and stays 404; page links to it were removed by `email_off`.
 
+The build emits localized `404.html` files. Cloudflare Pages uses these to return
+a real 404 for unknown paths instead of its default SPA-style homepage fallback.
+All recovery links and assets use absolute paths so deeply nested missing URLs
+still render correctly. Error pages are not included in `sitemap.xml`.
+
 For a local preview, run `npm run dev` and open `http://127.0.0.1:4173`. Set `PORT`
 to another value if that port is occupied. This preview server emulates clean
 Cloudflare page routes and is for local development only.

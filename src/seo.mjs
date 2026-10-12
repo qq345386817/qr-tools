@@ -1,3 +1,14 @@
+export const notFound = {
+  en: ['Page not found', 'This page is not available. Continue with a QR tool below.'],
+  'zh-Hans': ['页面不存在', '该页面不可用。请继续使用下方的二维码工具。'],
+  'zh-Hant': ['找不到頁面', '此頁面無法使用。請繼續使用下方的 QR Code 工具。'],
+  ja: ['ページが見つかりません', 'このページは利用できません。下のQRツールをご利用ください。'],
+  ko: ['페이지를 찾을 수 없습니다', '이 페이지를 사용할 수 없습니다. 아래 QR 도구를 이용하세요.'],
+  de: ['Seite nicht gefunden', 'Diese Seite ist nicht verfügbar. Nutze eines der QR-Tools unten.'],
+  fr: ['Page introuvable', 'Cette page est indisponible. Utilisez un outil QR ci-dessous.'],
+  es: ['Página no encontrada', 'Esta página no está disponible. Usa una herramienta QR de abajo.'],
+};
+
 export const seo = {
   en: {
     faqHeading: 'QR code questions',
