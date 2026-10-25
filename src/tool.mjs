@@ -1,12 +1,12 @@
 import QRCode from 'qrcode';
-import { createIcons, ArrowUpRight, BrushCleaning, CalendarDays, Camera, CameraOff, Copy, Download, ExternalLink, FileDown, Globe, ImageUp, Layers, Maximize, Printer, QrCode, RotateCcw, ScanLine, Share2, ShieldCheck, Upload, X } from 'lucide';
+import { createIcons, ArrowUpRight, BrushCleaning, CalendarDays, Camera, CameraOff, ChevronDown, Contact, Copy, Download, ExternalLink, FileDown, Globe, ImageUp, Layers, Link, Mail, Maximize, MessageSquare, Printer, QrCode, RotateCcw, ScanLine, Share2, ShieldCheck, SlidersHorizontal, Type, Upload, Wifi, X } from 'lucide';
 import { cleanLink, contrastRatio, makePayload } from './content.mjs';
 import { inspectContent } from './inspection.mjs';
 
 const data = JSON.parse(document.getElementById('page-data').textContent);
 const { ui, messages } = data;
 const $ = (id) => document.getElementById(id);
-createIcons({ icons: { ArrowUpRight, BrushCleaning, CalendarDays, Camera, CameraOff, Copy, Download, ExternalLink, FileDown, Globe, ImageUp, Layers, Maximize, Printer, QrCode, RotateCcw, ScanLine, Share2, ShieldCheck, Upload, X } });
+createIcons({ icons: { ArrowUpRight, BrushCleaning, CalendarDays, Camera, CameraOff, ChevronDown, Contact, Copy, Download, ExternalLink, FileDown, Globe, ImageUp, Layers, Link, Mail, Maximize, MessageSquare, Printer, QrCode, RotateCcw, ScanLine, Share2, ShieldCheck, SlidersHorizontal, Type, Upload, Wifi, X } });
 
 let type = data.defaultType;
 let mode = data.defaultMode;

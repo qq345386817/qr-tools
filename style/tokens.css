@@ -1,0 +1,60 @@
+/* Generated from src/design-tokens.json. */
+:root {
+  color-scheme: light;
+  --paper: #ffffff;
+  --ink: #1c2824;
+  --muted: #53635c;
+  --line: #c4d0c9;
+  --soft: #f2f5f3;
+  --accent: #007b69;
+  --on-accent: #ffffff;
+  --accent-soft: #e9f6f3;
+  --error: #af2947;
+  --focus: #245da8;
+  --warm: #8f4a17;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 32px;
+  --space-6: 48px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --font-sans: "Avenir Next", Avenir, "Segoe UI", system-ui, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Consolas, monospace;
+  --page-title-size: 32px;
+  --page-title-leading: 40px;
+  --page-title-weight: 700;
+  --section-title-size: 22px;
+  --section-title-leading: 30px;
+  --section-title-weight: 700;
+  --panel-title-size: 17px;
+  --panel-title-leading: 26px;
+  --panel-title-weight: 600;
+  --body-size: 16px;
+  --body-leading: 26px;
+  --body-weight: 400;
+  --control-size: 14px;
+  --control-leading: 22px;
+  --control-weight: 600;
+  --caption-size: 13px;
+  --caption-leading: 21px;
+  --caption-weight: 400;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+  --paper: #151b19;
+  --ink: #edf3ef;
+  --muted: #b9c8bf;
+  --line: #53665b;
+  --soft: #202a25;
+  --accent: #7bd9b7;
+  --on-accent: #10291f;
+  --accent-soft: #163d30;
+  --error: #ffa7b9;
+  --focus: #a1c9ff;
+  --warm: #efbd8c;
+  }
+}

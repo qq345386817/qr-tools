@@ -69,6 +69,27 @@ tool. Dependency versions are locked in `package-lock.json`. CSV parsing uses
 Papa Parse, ZIP creation uses fflate, and timezone/calendar handling uses Luxon
 and ics. Bundled license notices are in `script/THIRD_PARTY_LICENSES.txt`.
 
+## Design Foundations
+
+`src/design-tokens.json` is the shared source for semantic colors, light/dark
+themes, typography, spacing and radii. `scripts/design-tokens.mjs` emits
+`style/tokens.css` during the normal build. Edit the source JSON, not the generated
+stylesheet. Tool pages, localized documentation, historical guides and English
+aliases load this stylesheet. CSS links include content fingerprints so old
+cached styles do not mix with new markup.
+The build owns the first two import lines of `style/tool.css` and `style/base.css`;
+this compatibility import also loads the current tokens for cached older HTML.
+
+The homepage remains the usable QR workspace, not a marketing landing page.
+Type selectors, exports and lower-frequency customization are separated without
+changing QR processing or storage. The original icon and local system fonts are
+retained. There are no new trackers, remote fonts or content uploads. The App
+promotion reflects the existing native scanning, batch-label and calendar tools.
+
+Editable design/design-system drafts and browser QA evidence stay outside this
+independent repository. Run `npm test` after building for localized interface,
+token contrast, stylesheet consistency and existing engine/SEO checks.
+
 ## Search and AI Content
 
 `src/seo.mjs` owns the tool-specific search titles, descriptions and visible

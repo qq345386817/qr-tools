@@ -6,6 +6,8 @@ import { locales, pages, types } from '../src/locales.mjs';
 import { seo, notFound } from '../src/seo.mjs';
 import { updateLegacySeo } from './legacy-seo.mjs';
 import { workflowPanels } from '../src/workflow-markup.mjs';
+import { interfaceLocales } from '../src/interface-locales.mjs';
+import { buildDesignTokens } from './design-tokens.mjs';
 
 const root = resolve(import.meta.dirname, '..');
 const origin = 'https://qrtools.luopeike.com';
@@ -14,10 +16,14 @@ const icon = (name) => `<i data-lucide="${name}" aria-hidden="true"></i>`;
 const command = (id, name, text, className = '') => `<button id="${id}" class="${className}" type="button" title="${escape(text)}" aria-label="${escape(text)}">${icon(name)}${className.includes('icon-button') ? '' : `<span>${escape(text)}</span>`}</button>`;
 const version = async (file) => createHash('sha256').update(await readFile(resolve(root, file))).digest('hex').slice(0, 12);
 const scriptVersion = await buildAssets();
+await buildDesignTokens(root);
 const stylesheetVersion = await version('style/tool.css');
+const tokenVersion = await version('style/tokens.css');
+const baseVersion = await version('style/base.css');
 
 function renderPage(code, locale, page) {
   const { ui, fields, extra } = locale;
+  const labels = interfaceLocales[code];
   const prefix = locale.path ? '../' : '';
   const url = `${origin}/${locale.path}${page.slug}`;
   const title = page.titleKey ? ui[page.titleKey] : locale.title;
@@ -30,7 +36,7 @@ function renderPage(code, locale, page) {
     return `<label class="field ${options.wide ? 'wide' : ''}" for="field-${options.id ?? name}"><span>${label}</span>${input}</label>`;
   };
   const forms = {
-    link: field('url', 'textarea', { value: origin + '/', required: true }) + command('clean-link', 'brush-cleaning', ui.clean, 'text-button'),
+    link: field('url', 'url', { value: origin + '/', required: true }) + command('clean-link', 'brush-cleaning', ui.clean, 'text-button'),
     text: field('text', 'textarea', { required: true, rows: 6 }),
     wifi: `<div class="field-grid">${field('ssid', 'text', { required: true, wide: true, autocomplete: 'off' })}${field('password', 'password', { autocomplete: 'off' })}<label class="field"><span>${escape(fields.encryption)}</span><select name="encryption" id="encryption"><option value="WPA">WPA / WPA2 / WPA3</option><option value="WEP">WEP</option><option value="nopass">${escape(ui.openNetwork)}</option></select></label></div><div class="checkbox-row"><label><input type="checkbox" id="show-password">${escape(ui.showPassword)}</label><label><input type="checkbox" name="hidden">${escape(fields.hidden)}</label></div>`,
     email: `<div class="field-grid">${field('email', 'email', { required: true, wide: true, autocomplete: 'email' })}${field('subject', 'text', { wide: true })}${field('body', 'textarea', { wide: true })}</div>`,
@@ -74,6 +80,7 @@ ${Object.entries(locales).map(([language, entry]) => `  <link rel="alternate" hr
   <link rel="manifest" href="${prefix}favicon/site.webmanifest">
   <meta name="theme-color" content="#008f7c">
   <link rel="stylesheet" href="${prefix}style/tool.css?v=${stylesheetVersion}">
+  <link rel="stylesheet" href="${prefix}style/tokens.css?v=${tokenVersion}">
   <script type="application/ld+json">${JSON.stringify(schema).replace(/</g, '\\u003c')}</script>
   <script id="page-data" type="application/json">${pageData}</script>
   <script type="module" src="${prefix}script/tool.js?v=${scriptVersion}"></script>
@@ -84,7 +91,7 @@ ${Object.entries(locales).map(([language, entry]) => `  <link rel="alternate" hr
     <nav aria-label="QR Tools"><a href="help">${escape(ui.help)}</a><a class="store-link" href="https://apps.apple.com/app/id6526476285"><img src="${prefix}images/app-store-icon.svg" alt="" width="18" height="18">App Store</a>
     <label class="language-control"><span class="sr-only">${escape(ui.language)}</span>${icon('globe')}<select id="language" aria-label="${escape(ui.language)}">${Object.entries(locales).map(([language, entry]) => `<option value="/${entry.path}${page.slug}" ${language === code ? 'selected' : ''}>${entry.name}</option>`).join('')}</select></label></nav>
   </div></header>
-  <main class="container">
+  <main class="container" id="main-content">
     <div class="title-row"><h1>${escape(title)}</h1>${page.slug ? `<a class="home-link" href="./">${escape(locale.title)}${icon('arrow-up-right')}</a>` : ''}</div>
 ${copy ? `    <p class="page-summary">${escape(copy)}</p>` : ''}
     <div class="mode-switch" role="tablist" aria-label="QR Tools">
@@ -95,17 +102,22 @@ ${copy ? `    <p class="page-summary">${escape(copy)}</p>` : ''}
     <section id="create-panel" role="tabpanel" aria-labelledby="mode-create" ${page.mode !== 'create' ? 'hidden' : ''}>
       <div class="workspace">
         <div class="editor">
-          <div class="content-tabs" role="tablist" aria-label="${escape(ui.create)}">${types.map((type, index) => `<button type="button" role="tab" id="tab-${type}" data-type="${type}" aria-selected="${type === selected}" aria-controls="form-${type}" tabindex="${type === selected ? '0' : '-1'}">${escape(locale.types[index])}</button>`).join('')}</div>
+          <h2 class="workspace-label"><span class="step-number" aria-hidden="true">01</span>${escape(labels.content)}</h2>
+          <div class="content-tabs" role="tablist" aria-label="${escape(ui.create)}">${types.map((type, index) => `<button type="button" role="tab" id="tab-${type}" data-type="${type}" aria-selected="${type === selected}" aria-controls="form-${type}" tabindex="${type === selected ? '0' : '-1'}">${icon(['link', 'type', 'wifi', 'mail', 'message-square', 'contact'][index])}<span>${escape(locale.types[index])}</span></button>`).join('')}</div>
           ${types.map((type) => `<form id="form-${type}" data-form="${type}" role="tabpanel" aria-labelledby="tab-${type}" ${type !== selected ? 'hidden' : ''} autocomplete="off">${forms[type]}</form>`).join('\n')}
-          <div class="customize-header"><h2>${escape(ui.customize)}</h2>${command('reset', 'rotate-ccw', ui.reset, 'icon-button')}</div>
+          <details class="customization"><summary><span>${icon('sliders-horizontal')}${escape(ui.customize)}</span>${icon('chevron-down')}</summary><div class="customization-body">
+          <div class="customize-header">${command('reset', 'rotate-ccw', ui.reset, 'icon-button')}</div>
           <div class="settings-grid">
             <label class="field"><span>${escape(ui.foreground)}</span><div class="color-control"><input id="foreground" type="color" value="#000000" aria-label="${escape(ui.foreground)}"><output id="foreground-value">#000000</output></div></label>
             <label class="field"><span>${escape(ui.background)}</span><div class="color-control"><input id="background" type="color" value="#ffffff" aria-label="${escape(ui.background)}"><output id="background-value">#FFFFFF</output></div></label>
             <label class="field"><span>${escape(ui.correction)}</span><select id="correction"><option value="H">${escape(ui.high)} (H)</option><option value="Q">Q (25%)</option><option value="M">${escape(ui.medium)} (M)</option><option value="L">${escape(ui.low)} (L)</option></select></label>
           </div>
+          </div></details>
         </div>
         <aside class="preview-panel" aria-label="QR Code">
+          <h2 class="workspace-label"><span class="step-number" aria-hidden="true">02</span>${escape(labels.preview)}<span class="format-label">PNG / SVG</span></h2>
           <div class="qr-stage"><canvas id="qr-preview" width="1024" height="1024" role="img" aria-label="QR Code"></canvas><p id="empty-preview" hidden>${escape(ui.empty)}</p></div>
+          <h3 class="export-label">${escape(labels.export)}</h3>
           <label class="field size-control"><span>${escape(ui.size)}</span><select id="png-size"><option value="256">256 px</option><option value="512">512 px</option><option value="1024" selected>1024 px</option><option value="2048">2048 px</option></select></label>
           <div class="export-actions">${command('download-png', 'download', ui.png, 'primary-button export')}${command('copy-image', 'copy', ui.copy, 'icon-button export')}${command('share-image', 'share-2', ui.share, 'icon-button export')}</div>
           ${command('download-svg', 'download', ui.svg, 'text-button export')}
@@ -127,7 +139,7 @@ ${copy ? `    <p class="page-summary">${escape(copy)}</p>` : ''}
     </section>
     ${workflowPanels(locale, extra, page.mode, { escape, icon, command })}
     <p class="privacy-note">${icon('shield-check')}${escape(ui.localPrivacy)}</p>
-    <section class="app-band"><img src="${prefix}favicon/apple-touch-icon.png" width="48" height="48" alt="QR Tools"><div><h2>${escape(ui.appTitle)}</h2><p>${escape(ui.appCopy)}</p></div><a class="secondary-button" href="https://apps.apple.com/app/id6526476285"><img src="${prefix}images/app-store-icon.svg" width="20" height="20" alt="">App Store</a></section>
+    <section class="app-band"><img src="${prefix}favicon/apple-touch-icon.png" width="56" height="56" alt=""><div><h2>${escape(labels.appTitle)}</h2><p>${escape(labels.appCopy)}</p></div><a class="secondary-button" href="https://apps.apple.com/app/id6526476285"><img src="${prefix}images/app-store-icon.svg" width="20" height="20" alt="">App Store${icon('arrow-up-right')}</a></section>
     <section class="qr-questions" aria-labelledby="questions-heading"><h2 id="questions-heading">${escape(seo[code].faqHeading)}</h2>${content.questions.map(([question, answer]) => `<details><summary>${escape(question)}</summary><p>${escape(answer)}</p></details>`).join('')}</section>
     <section class="tool-links"><h2>${escape(ui.guides)}</h2><div>${links}<a href="https://chromewebstore.google.com/detail/qr-tools-customizable/pmilkclbidnbagfonjnbdnegneifogpl">${escape(ui.chrome)}${icon('arrow-up-right')}</a>${code === 'en' ? staticGuideLinks.map(([slug, text]) => `<a href="${slug}">${escape(text)}${icon('arrow-up-right')}</a>`).join('') : ''}</div></section>
     <noscript><p>${escape(ui.notSupported)}</p><a href="https://apps.apple.com/app/id6526476285">App Store</a></noscript>
@@ -152,11 +164,11 @@ for (const [code, locale] of Object.entries(locales)) {
   const [heading, message] = notFound[code];
   const recoveryLinks = pages.map((page) => `<a class="secondary-button" href="/${locale.path}${page.slug}">${escape(page.titleKey ? locale.ui[page.titleKey] : locale.title)}</a>`).join('');
   await writeFile(resolve(root, `${locale.path}404.html`), `<!DOCTYPE html>
-<html lang="${code}"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="robots" content="noindex,follow"><title>${escape(heading)} | QR Tools</title><link rel="icon" href="/favicon/favicon-32x32.png"><link rel="stylesheet" href="/style/tool.css?v=${stylesheetVersion}"></head>
+<html lang="${code}"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="robots" content="noindex,follow"><title>${escape(heading)} | QR Tools</title><link rel="icon" href="/favicon/favicon-32x32.png"><link rel="stylesheet" href="/style/tool.css?v=${stylesheetVersion}"><link rel="stylesheet" href="/style/tokens.css?v=${tokenVersion}"></head>
 <body><header class="site-header"><div class="container header-inner"><a class="brand" href="/${locale.path}"><img src="/favicon/apple-touch-icon.png" width="40" height="40" alt=""><span>QR Tools</span></a></div></header><main class="container not-found"><p>404</p><h1>${escape(heading)}</h1><p>${escape(message)}</p><div class="result-actions">${recoveryLinks}</div></main></body></html>\n`);
 }
 
-await updateLegacySeo(root, locales, pages, escape);
+await updateLegacySeo(root, locales, pages, escape, { tokenVersion, baseVersion });
 
 const markdownPaths = Object.values(locales).flatMap((locale) => pages.map((page) => `/${locale.path}${page.slug || 'index'}.md`));
 await writeFile(resolve(root, '_headers'), markdownPaths.map((path) => `${path}\n  Content-Type: text/markdown; charset=utf-8\n  X-Robots-Tag: noindex, follow\n`).join('\n'));

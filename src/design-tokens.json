@@ -1,0 +1,46 @@
+{
+  "name": "QR Tools Web",
+  "version": 1,
+  "meta": { "source": "local", "paths": ["style/tool.css", "style/base.css"], "note": "Brand green and native system typography retained; surfaces and accessible dark theme refined for the QR workspace." },
+  "color": {
+    "themes": [{ "id": "light", "name": "Light" }, { "id": "dark", "name": "Dark" }],
+    "tokens": [
+      { "name": "paper", "value": { "light": "#ffffff", "dark": "#151b19" }, "usage": "Page and form backgrounds." },
+      { "name": "ink", "value": { "light": "#1c2824", "dark": "#edf3ef" }, "usage": "Primary text on paper and soft surfaces." },
+      { "name": "muted", "value": { "light": "#53635c", "dark": "#b9c8bf" }, "usage": "Secondary text on paper and soft surfaces." },
+      { "name": "line", "value": { "light": "#c4d0c9", "dark": "#53665b" }, "usage": "Quiet separators; not the sole indicator of an interactive control." },
+      { "name": "soft", "value": { "light": "#f2f5f3", "dark": "#202a25" }, "usage": "Preview backdrop, neutral controls and table headers." },
+      { "name": "accent", "value": { "light": "#007b69", "dark": "#7bd9b7" }, "usage": "Accessible refinement of the original brand green; primary actions and selected states." },
+      { "name": "on-accent", "value": { "light": "#ffffff", "dark": "#10291f" }, "usage": "Text and icons on accent fills." },
+      { "name": "accent-soft", "value": { "light": "#e9f6f3", "dark": "#163d30" }, "usage": "Selected content types; pair with accent or ink text." },
+      { "name": "error", "value": { "light": "#af2947", "dark": "#ffa7b9" }, "usage": "Errors and validation warnings, always accompanied by text." },
+      { "name": "focus", "value": { "light": "#245da8", "dark": "#a1c9ff" }, "usage": "Keyboard focus; visible against both paper and soft." },
+      { "name": "warm", "value": { "light": "#8f4a17", "dark": "#efbd8c" }, "usage": "Secondary format indicators and sign-tool icons." }
+    ]
+  },
+  "type": {
+    "fonts": [],
+    "families": { "sans": "\"Avenir Next\", Avenir, \"Segoe UI\", system-ui, sans-serif", "mono": "ui-monospace, SFMono-Regular, Consolas, monospace" },
+    "groups": [{ "name": "Interface", "family": "sans", "styles": [
+      { "name": "page-title", "fontSize": "32px", "lineHeight": "40px", "fontWeight": 700 },
+      { "name": "section-title", "fontSize": "22px", "lineHeight": "30px", "fontWeight": 700 },
+      { "name": "panel-title", "fontSize": "17px", "lineHeight": "26px", "fontWeight": 600 },
+      { "name": "body", "fontSize": "16px", "lineHeight": "26px", "fontWeight": 400 },
+      { "name": "control", "fontSize": "14px", "lineHeight": "22px", "fontWeight": 600 },
+      { "name": "caption", "fontSize": "13px", "lineHeight": "21px", "fontWeight": 400 }
+    ] }]
+  },
+  "spacing": { "tokens": [
+    { "name": "space-1", "value": "4px", "usage": "Icon and text micro-spacing." },
+    { "name": "space-2", "value": "8px", "usage": "Related controls." },
+    { "name": "space-3", "value": "16px", "usage": "Form and mobile gutters." },
+    { "name": "space-4", "value": "24px", "usage": "Workspace padding." },
+    { "name": "space-5", "value": "32px", "usage": "Major columns and content groups." },
+    { "name": "space-6", "value": "48px", "usage": "Full-width section separation." }
+  ] },
+  "radius": { "tokens": [
+    { "name": "radius-sm", "value": "4px", "usage": "Tooltips and small tags." },
+    { "name": "radius-md", "value": "6px", "usage": "Inputs and type selectors." },
+    { "name": "radius-lg", "value": "8px", "usage": "Framed previews and images; never exceed this for cards." }
+  ] }
+}

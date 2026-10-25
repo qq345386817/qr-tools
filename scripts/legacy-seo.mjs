@@ -1,5 +1,5 @@
 import { parse } from 'parse5';
-import { readFile, writeFile } from 'node:fs/promises';
+import { readFile, writeFile, readdir } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { legacyDescriptions } from '../src/legacy-seo.mjs';
 import { websitePrivacy } from '../src/website-privacy.mjs';
@@ -9,7 +9,7 @@ function flatten(node) {
   return [node, ...(node.childNodes ?? []).flatMap(flatten)];
 }
 
-export async function updateLegacySeo(root, locales, pages, escape) {
+export async function updateLegacySeo(root, locales, pages, escape, { tokenVersion, baseVersion }) {
   for (const [code, locale] of Object.entries(locales)) for (const slug of ['help', 'support', 'privacy-policy']) {
     const file = resolve(root, `${locale.path}${slug}.html`);
     const html = await readFile(file, 'utf8');
@@ -56,5 +56,24 @@ export async function updateLegacySeo(root, locales, pages, escape) {
       updated = updated.slice(0, change.start) + change.value + updated.slice(change.end);
     }
     if (updated !== html) await writeFile(file, updated);
+  }
+  // Include historical guides and English aliases without rewriting their content.
+  for (const folder of new Set(['', 'en-US/', ...Object.values(locales).map((locale) => locale.path)])) {
+    for (const filename of (await readdir(resolve(root, folder))).filter((name) => name.endsWith('.html'))) {
+      const file = resolve(root, folder, filename);
+      let html = await readFile(file, 'utf8');
+      const nodes = flatten(parse(html, { sourceCodeLocationInfo: true }));
+      const stylesheet = nodes.find((node) => node.tagName === 'link' && attribute(node, 'href')?.includes('style/base.css'));
+      if (!stylesheet) continue;
+      const prefix = folder ? '../' : '';
+      const oldTokens = nodes.find((node) => node.tagName === 'link' && attribute(node, 'href')?.includes('style/tokens.css'));
+      const tokenLink = `<link rel="stylesheet" href="${prefix}style/tokens.css?v=${tokenVersion}">`;
+      const replacements = [
+        { ...stylesheet.sourceCodeLocation, value: `<link rel="stylesheet" href="${prefix}style/base.css?v=${baseVersion}">` },
+        oldTokens ? { ...oldTokens.sourceCodeLocation, value: tokenLink } : { startOffset: stylesheet.sourceCodeLocation.endOffset, endOffset: stylesheet.sourceCodeLocation.endOffset, value: `\n  ${tokenLink}` }
+      ];
+      for (const change of replacements.sort((a, b) => b.startOffset - a.startOffset)) html = html.slice(0, change.startOffset) + change.value + html.slice(change.endOffset);
+      await writeFile(file, html);
+    }
   }
 }
