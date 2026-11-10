@@ -16,6 +16,12 @@
 
 QR는 Google 캘린더 일정 입력 화면을 엽니다. 일정이 자동 저장되지 않습니다. ICS는 호환 캘린더에 가져올 수 있습니다. 실제 가져오기 테스트도 필요합니다.
 
+## QR Tools QR코드 스캐너·생성기
+
+Safari 페이지를 QR로 만들어 다른 기기에서 여세요. 이미지 QR 읽기, Wi-Fi 공유, CSV 라벨 생성과 기기 내 PNG·SVG·ZIP·PDF 내보내기도 지원합니다.
+
+[앱 알아보기](https://qrtools.luopeike.com/ko/qr-tools-app.md)
+
 ## 다른 QR 도구
 
 - [Wi-Fi QR 코드 생성기](https://qrtools.luopeike.com/ko/wifi-qr-code-generator.md)

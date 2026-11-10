@@ -16,6 +16,12 @@ This is a static vCard QR code, not a hosted digital profile. To change a phone 
 
 Include only the information you intend recipients to receive. QR images can be copied and decoded by anyone who has them. No account is required, and the website does not save your contact card.
 
+## QR Tools: QR Code Reader
+
+Read a QR image or move a Safari page to your phone. Create Wi-Fi codes and CSV labels, then export PNG, SVG, ZIP or PDF with local QR processing.
+
+[Explore the App](https://qrtools.luopeike.com/qr-tools-app.md)
+
 ## More QR tools
 
 - [Wi-Fi QR code generator](https://qrtools.luopeike.com/wifi-qr-code-generator.md)

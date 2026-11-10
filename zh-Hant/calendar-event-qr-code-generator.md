@@ -16,6 +16,12 @@
 
 QR 開啟 Google 日曆活動填寫頁，並非已儲存活動。ICS 可匯入相容日曆。時區及夏令時間檢查不能替代實際試匯入。
 
+## QR Tools: QRCode 掃描器
+
+把 Safari 目前分頁變成 QR Code，在另一台裝置繼續開啟。也可讀取圖片、分享 Wi-Fi、製作 CSV 標籤，並在裝置上匯出 PNG、SVG、ZIP 或 PDF。
+
+[瞭解 App](https://qrtools.luopeike.com/zh-Hant/qr-tools-app.md)
+
 ## 更多 QR 工具
 
 - [Wi-Fi QR Code 產生器](https://qrtools.luopeike.com/zh-Hant/wifi-qr-code-generator.md)

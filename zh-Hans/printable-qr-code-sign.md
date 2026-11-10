@@ -16,6 +16,12 @@
 
 展示牌包含静态二维码。密码或链接变更后须替换展示牌。任何持有 Wi-Fi 二维码的人都能读取密码。
 
+## QR Tools 二维码扫描与生成
+
+把 Safari 当前页变成二维码，在另一台设备继续打开。也可读取图片、分享 Wi-Fi、制作 CSV 标签，并在设备上导出 PNG、SVG、ZIP 或 PDF。
+
+[了解 App](https://qrtools.luopeike.com/zh-Hans/qr-tools-app.md)
+
 ## 更多二维码工具
 
 - [Wi-Fi 二维码生成器](https://qrtools.luopeike.com/zh-Hans/wifi-qr-code-generator.md)

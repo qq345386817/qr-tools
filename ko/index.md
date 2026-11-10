@@ -20,6 +20,12 @@ PNG는 이미지 공유와 문서에, 크기를 바꿔도 선명한 SVG는 인�
 
 사이트에 페이지 URL을 붙여 넣으세요. Safari와 Chrome 확장 프로그램은 현재 탭 주소를 직접 가져오지만 사이트는 다른 탭을 읽을 수 없습니다.
 
+## QR Tools QR코드 스캐너·생성기
+
+Safari 페이지를 QR로 만들어 다른 기기에서 여세요. 이미지 QR 읽기, Wi-Fi 공유, CSV 라벨 생성과 기기 내 PNG·SVG·ZIP·PDF 내보내기도 지원합니다.
+
+[앱 알아보기](https://qrtools.luopeike.com/ko/qr-tools-app.md)
+
 ## 다른 QR 도구
 
 - [Wi-Fi QR 코드 생성기](https://qrtools.luopeike.com/ko/wifi-qr-code-generator.md)

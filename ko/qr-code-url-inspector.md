@@ -16,6 +16,12 @@ QR 내용과 실제 호스트, 프로토콜, URL 매개변수를 로컬로 확�
 
 구조만 확인하며 사이트 평판은 조회하지 않습니다. 링크를 자동으로 열지 않으며 자격 증명이 포함된 URL은 수정해야 합니다.
 
+## QR Tools QR코드 스캐너·생성기
+
+Safari 페이지를 QR로 만들어 다른 기기에서 여세요. 이미지 QR 읽기, Wi-Fi 공유, CSV 라벨 생성과 기기 내 PNG·SVG·ZIP·PDF 내보내기도 지원합니다.
+
+[앱 알아보기](https://qrtools.luopeike.com/ko/qr-tools-app.md)
+
 ## 다른 QR 도구
 
 - [Wi-Fi QR 코드 생성기](https://qrtools.luopeike.com/ko/wifi-qr-code-generator.md)

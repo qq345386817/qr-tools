@@ -16,6 +16,12 @@ Nein. Ein- und Ausgabe werden im Browser verarbeitet, ohne Konto oder dauerhafte
 
 Der QR öffnet eine Google-Kalender-Vorlage, keinen gespeicherten Termin. ICS kann in kompatible Kalender importiert werden. Einen Testimport durchführen.
 
+## QR Tools: QR Code Scanner
+
+Eine Safari-Seite per QR aufs Handy senden, QR-Bilder lesen, WLAN teilen und CSV-Etiketten erstellen. PNG, SVG, ZIP und PDF lokal exportieren.
+
+[App kennenlernen](https://qrtools.luopeike.com/de-DE/qr-tools-app.md)
+
 ## Weitere QR-Tools
 
 - [WLAN-QR-Code-Generator](https://qrtools.luopeike.com/de-DE/wifi-qr-code-generator.md)

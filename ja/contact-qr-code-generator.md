@@ -16,6 +16,12 @@
 
 相手に渡したい情報だけを入力してください。QR画像はコピーでき、画像を持つ人なら内容を読めます。アカウントは不要で、サイトは名刺を保存しません。
 
+## QR Tools QRコードリーダー・作成
+
+SafariのページをQRにして別の端末へ。画像のQR読み取り、Wi-Fi共有、CSVラベル作成にも対応。PNG・SVG・ZIP・PDFを端末内で書き出せます。
+
+[Appについて](https://qrtools.luopeike.com/ja/qr-tools-app.md)
+
 ## その他のQRツール
 
 - [Wi-Fi QRコード作成](https://qrtools.luopeike.com/ja/wifi-qr-code-generator.md)

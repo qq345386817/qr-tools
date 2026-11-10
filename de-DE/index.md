@@ -20,6 +20,12 @@ PNG eignet sich zum Teilen von Bildern und für Dokumente. SVG bleibt beim Vergr
 
 Füge die Seiten-URL auf der Website ein. Die Safari- und Chrome-Erweiterungen erfassen die URL des aktuellen Tabs direkt; die Website kann deine anderen Tabs nicht lesen.
 
+## QR Tools: QR Code Scanner
+
+Eine Safari-Seite per QR aufs Handy senden, QR-Bilder lesen, WLAN teilen und CSV-Etiketten erstellen. PNG, SVG, ZIP und PDF lokal exportieren.
+
+[App kennenlernen](https://qrtools.luopeike.com/de-DE/qr-tools-app.md)
+
 ## Weitere QR-Tools
 
 - [WLAN-QR-Code-Generator](https://qrtools.luopeike.com/de-DE/wifi-qr-code-generator.md)

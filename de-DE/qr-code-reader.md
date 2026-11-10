@@ -16,6 +16,12 @@ Nein. Der Inhalt wird zuerst als Text angezeigt. Nur HTTP- und HTTPS-Adressen er
 
 Die Kamera ist optional und erfordert eine Browserberechtigung auf HTTPS. Audio wird nicht angefordert. Sie stoppt bei erkanntem Code, verborgenem Tab, Seitenwechsel oder Wechsel zu Erstellen.
 
+## QR Tools: QR Code Scanner
+
+Eine Safari-Seite per QR aufs Handy senden, QR-Bilder lesen, WLAN teilen und CSV-Etiketten erstellen. PNG, SVG, ZIP und PDF lokal exportieren.
+
+[App kennenlernen](https://qrtools.luopeike.com/de-DE/qr-tools-app.md)
+
 ## Weitere QR-Tools
 
 - [WLAN-QR-Code-Generator](https://qrtools.luopeike.com/de-DE/wifi-qr-code-generator.md)

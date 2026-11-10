@@ -16,6 +16,12 @@ No. Input and output are processed in this browser, without an account or persis
 
 Signs contain static QR data. Replace the sign when the Wi-Fi password or link changes. Anyone with a Wi-Fi QR can read its password.
 
+## QR Tools: QR Code Reader
+
+Read a QR image or move a Safari page to your phone. Create Wi-Fi codes and CSV labels, then export PNG, SVG, ZIP or PDF with local QR processing.
+
+[Explore the App](https://qrtools.luopeike.com/qr-tools-app.md)
+
 ## More QR tools
 
 - [Wi-Fi QR code generator](https://qrtools.luopeike.com/wifi-qr-code-generator.md)

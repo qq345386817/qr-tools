@@ -16,6 +16,12 @@ QR Code 包含網路名稱、安全類型和密碼，也可包含隱藏網路標
 
 不會。請使用新網路資訊重新產生 Wi-Fi QR Code。舊圖片仍然包含舊密碼。
 
+## QR Tools: QRCode 掃描器
+
+把 Safari 目前分頁變成 QR Code，在另一台裝置繼續開啟。也可讀取圖片、分享 Wi-Fi、製作 CSV 標籤，並在裝置上匯出 PNG、SVG、ZIP 或 PDF。
+
+[瞭解 App](https://qrtools.luopeike.com/zh-Hant/qr-tools-app.md)
+
 ## 更多 QR 工具
 
 - [聯絡人 QR Code 產生器](https://qrtools.luopeike.com/zh-Hant/contact-qr-code-generator.md)

@@ -16,6 +16,12 @@ No. Input and output are processed in this browser, without an account or persis
 
 The batch is limited to 100 codes and a 1 MB CSV. Printing uses eight labels per sheet. Test a printed label before distributing the batch.
 
+## QR Tools: QR Code Reader
+
+Read a QR image or move a Safari page to your phone. Create Wi-Fi codes and CSV labels, then export PNG, SVG, ZIP or PDF with local QR processing.
+
+[Explore the App](https://qrtools.luopeike.com/qr-tools-app.md)
+
 ## More QR tools
 
 - [Wi-Fi QR code generator](https://qrtools.luopeike.com/wifi-qr-code-generator.md)

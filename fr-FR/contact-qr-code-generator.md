@@ -16,6 +16,12 @@ Ce QR vCard est statique, ce n’est pas un profil hébergé. Pour changer les c
 
 Ne saisissez que les informations destinées au destinataire. Toute personne possédant l’image QR peut la copier et la lire. Le site ne demande pas de compte et ne sauvegarde pas la carte.
 
+## QR Tools: Lecteur de QR Code
+
+Partagez une page Safari par QR. Lisez les QR des images, créez des codes Wi-Fi et des étiquettes CSV. Exportez PNG, SVG, ZIP ou PDF en local.
+
+[Découvrir l’app](https://qrtools.luopeike.com/fr-FR/qr-tools-app.md)
+
 ## Autres outils QR
 
 - [Générateur de QR Wi-Fi](https://qrtools.luopeike.com/fr-FR/wifi-qr-code-generator.md)

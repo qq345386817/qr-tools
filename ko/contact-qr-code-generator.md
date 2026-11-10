@@ -16,6 +16,12 @@
 
 받는 사람에게 제공하려는 정보만 입력하세요. QR 이미지는 복사할 수 있으며 이미지를 가진 사람이 내용을 읽을 수 있습니다. 계정이 필요 없고 사이트는 명함을 저장하지 않습니다.
 
+## QR Tools QR코드 스캐너·생성기
+
+Safari 페이지를 QR로 만들어 다른 기기에서 여세요. 이미지 QR 읽기, Wi-Fi 공유, CSV 라벨 생성과 기기 내 PNG·SVG·ZIP·PDF 내보내기도 지원합니다.
+
+[앱 알아보기](https://qrtools.luopeike.com/ko/qr-tools-app.md)
+
 ## 다른 QR 도구
 
 - [Wi-Fi QR 코드 생성기](https://qrtools.luopeike.com/ko/wifi-qr-code-generator.md)

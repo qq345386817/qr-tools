@@ -16,6 +16,12 @@ Nein. Ein- und Ausgabe werden im Browser verarbeitet, ohne Konto oder dauerhafte
 
 QR-Daten sind statisch. Bei geändertem Passwort oder Link das Schild ersetzen. Jeder mit dem WLAN-QR kann das Passwort lesen.
 
+## QR Tools: QR Code Scanner
+
+Eine Safari-Seite per QR aufs Handy senden, QR-Bilder lesen, WLAN teilen und CSV-Etiketten erstellen. PNG, SVG, ZIP und PDF lokal exportieren.
+
+[App kennenlernen](https://qrtools.luopeike.com/de-DE/qr-tools-app.md)
+
 ## Weitere QR-Tools
 
 - [WLAN-QR-Code-Generator](https://qrtools.luopeike.com/de-DE/wifi-qr-code-generator.md)

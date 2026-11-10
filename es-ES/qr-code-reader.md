@@ -16,6 +16,12 @@ No. Primero se muestra el texto. Solo las direcciones HTTP y HTTPS tienen un bot
 
 La cámara es opcional y necesita permiso del navegador en HTTPS. No se solicita audio. Se detiene al encontrar un QR, ocultar la pestaña, salir de la página o volver al modo Crear.
 
+## QR Tools: Lector y Generador
+
+Comparte una página de Safari por QR. Lee QR de imágenes, crea códigos Wi-Fi y etiquetas CSV. Exporta PNG, SVG, ZIP o PDF en tu dispositivo.
+
+[Conoce la app](https://qrtools.luopeike.com/es-ES/qr-tools-app.md)
+
 ## Más herramientas QR
 
 - [Generador de QR Wi-Fi](https://qrtools.luopeike.com/es-ES/wifi-qr-code-generator.md)

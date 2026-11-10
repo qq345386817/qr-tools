@@ -1,5 +1,29 @@
 /* QR Tools token import (generated). */
 @import url("tokens.css?v=94c0c0573521");
+
+.app-page { padding-top: 32px; }
+.app-intro { display: grid; grid-template-columns: minmax(0, 1fr) 300px; grid-template-areas: "pitch preview" "safari preview"; gap: 20px 48px; align-items: start; }
+.app-pitch { grid-area: pitch; }
+.app-safari { grid-area: safari; }
+.app-intro h1 { font-size: 32px; line-height: 1.25; margin: 12px 0; overflow-wrap: anywhere; }
+.app-intro p, .app-intro li, .app-features p, .app-comparison p { line-height: 1.7; overflow-wrap: anywhere; }
+.app-subtitle { color: var(--muted); }
+.app-intro .primary-button { margin: 16px 0 24px; }
+.app-intro h2, .app-features h2, .app-comparison h2 { font-size: 23px; line-height: 1.4; }
+.app-intro ol { padding-inline-start: 24px; }
+.app-intro li + li { margin-top: 12px; }
+.app-screenshot { grid-area: preview; width: 100%; height: auto; display: block; background: #15191a; }
+.app-features, .app-comparison { border-top: 1px solid var(--line); margin-top: 40px; padding-top: 24px; }
+.app-features > div { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px 28px; }
+.app-features h3 { font-size: 18px; line-height: 1.4; }
+.app-features p { color: var(--muted); }
+.app-band div > a { display: inline-flex; align-items: center; gap: 6px; margin-top: 8px; }
+@media (max-width: 760px) {
+  .app-intro { grid-template-columns: minmax(0, 1fr); grid-template-areas: "pitch" "preview" "safari"; gap: 24px; }
+  .app-intro h1 { font-size: 28px; }
+  .app-screenshot { max-width: 300px; justify-self: center; }
+  .app-features > div { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+}
 * { box-sizing: border-box; }
 html { font-family: var(--font-sans); font-size: var(--body-size); color: var(--ink); background: var(--paper); line-height: var(--body-leading); letter-spacing: 0; }
 body { margin: 0; }

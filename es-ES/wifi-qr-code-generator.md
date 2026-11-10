@@ -16,6 +16,12 @@ No. Quien tenga la imagen puede leer la contraseña. Comparte una red de invitad
 
 No. Genera otro QR con los datos nuevos. La imagen anterior conserva la contraseña anterior.
 
+## QR Tools: Lector y Generador
+
+Comparte una página de Safari por QR. Lee QR de imágenes, crea códigos Wi-Fi y etiquetas CSV. Exporta PNG, SVG, ZIP o PDF en tu dispositivo.
+
+[Conoce la app](https://qrtools.luopeike.com/es-ES/qr-tools-app.md)
+
 ## Más herramientas QR
 
 - [Generador de QR de contacto](https://qrtools.luopeike.com/es-ES/contact-qr-code-generator.md)

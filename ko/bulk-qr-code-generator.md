@@ -16,6 +16,12 @@ CSV로 최대 100개의 QR 라벨을 일괄 생성하세요. PNG/SVG ZIP 다운�
 
 최대 100개 코드와 1 MB CSV입니다. 한 장에 라벨 8개를 인쇄합니다. 배포 전에 인쇄 코드를 시험 스캔하세요.
 
+## QR Tools QR코드 스캐너·생성기
+
+Safari 페이지를 QR로 만들어 다른 기기에서 여세요. 이미지 QR 읽기, Wi-Fi 공유, CSV 라벨 생성과 기기 내 PNG·SVG·ZIP·PDF 내보내기도 지원합니다.
+
+[앱 알아보기](https://qrtools.luopeike.com/ko/qr-tools-app.md)
+
 ## 다른 QR 도구
 
 - [Wi-Fi QR 코드 생성기](https://qrtools.luopeike.com/ko/wifi-qr-code-generator.md)

@@ -20,6 +20,12 @@ PNG 適合圖片分享和文件；SVG 放大後依然清晰，適合列印。兩
 
 在網站貼上網址即可產生 QR Code。Safari 與 Chrome 擴充功能可直接取得目前分頁網址，網站本身無法讀取其他分頁。
 
+## QR Tools: QRCode 掃描器
+
+把 Safari 目前分頁變成 QR Code，在另一台裝置繼續開啟。也可讀取圖片、分享 Wi-Fi、製作 CSV 標籤，並在裝置上匯出 PNG、SVG、ZIP 或 PDF。
+
+[瞭解 App](https://qrtools.luopeike.com/zh-Hant/qr-tools-app.md)
+
 ## 更多 QR 工具
 
 - [Wi-Fi QR Code 產生器](https://qrtools.luopeike.com/zh-Hant/wifi-qr-code-generator.md)

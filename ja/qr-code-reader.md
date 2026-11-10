@@ -16,6 +16,12 @@ PNG、JPEG、GIF、WebP、BMP画像やカメラからQRを読み取り。画像�
 
 カメラは任意で、HTTPSサイトでブラウザの許可が必要です。音声は要求しません。読み取り成功、タブ非表示、ページ離脱、作成モードへの切り替えで停止します。
 
+## QR Tools QRコードリーダー・作成
+
+SafariのページをQRにして別の端末へ。画像のQR読み取り、Wi-Fi共有、CSVラベル作成にも対応。PNG・SVG・ZIP・PDFを端末内で書き出せます。
+
+[Appについて](https://qrtools.luopeike.com/ja/qr-tools-app.md)
+
 ## その他のQRツール
 
 - [Wi-Fi QRコード作成](https://qrtools.luopeike.com/ja/wifi-qr-code-generator.md)

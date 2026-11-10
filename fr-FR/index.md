@@ -20,6 +20,12 @@ PNG convient au partage d’images et aux documents. SVG reste net à toute tail
 
 Collez l’URL de la page sur le site. Les extensions Safari et Chrome récupèrent directement l’URL de l’onglet actuel ; le site ne peut pas lire vos autres onglets.
 
+## QR Tools: Lecteur de QR Code
+
+Partagez une page Safari par QR. Lisez les QR des images, créez des codes Wi-Fi et des étiquettes CSV. Exportez PNG, SVG, ZIP ou PDF en local.
+
+[Découvrir l’app](https://qrtools.luopeike.com/fr-FR/qr-tools-app.md)
+
 ## Autres outils QR
 
 - [Générateur de QR Wi-Fi](https://qrtools.luopeike.com/fr-FR/wifi-qr-code-generator.md)

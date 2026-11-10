@@ -16,6 +16,12 @@ No. The decoded content is shown as text first. Only HTTP and HTTPS addresses re
 
 Camera scanning is optional and requires browser permission on HTTPS. Audio is not requested. Camera tracks stop when a code is found, the tab is hidden, you leave the page or switch back to Create.
 
+## QR Tools: QR Code Reader
+
+Read a QR image or move a Safari page to your phone. Create Wi-Fi codes and CSV labels, then export PNG, SVG, ZIP or PDF with local QR processing.
+
+[Explore the App](https://qrtools.luopeike.com/qr-tools-app.md)
+
 ## More QR tools
 
 - [Wi-Fi QR code generator](https://qrtools.luopeike.com/wifi-qr-code-generator.md)

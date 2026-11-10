@@ -20,6 +20,12 @@ PNG is useful for image sharing and documents. SVG stays sharp when resized for 
 
 Paste the page URL into the website to create its QR code. The Safari and Chrome extensions can obtain the current tab URL directly; the website cannot read your other tabs.
 
+## QR Tools: QR Code Reader
+
+Read a QR image or move a Safari page to your phone. Create Wi-Fi codes and CSV labels, then export PNG, SVG, ZIP or PDF with local QR processing.
+
+[Explore the App](https://qrtools.luopeike.com/qr-tools-app.md)
+
 ## More QR tools
 
 - [Wi-Fi QR code generator](https://qrtools.luopeike.com/wifi-qr-code-generator.md)

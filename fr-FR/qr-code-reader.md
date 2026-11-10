@@ -16,6 +16,12 @@ Non. Le contenu est d’abord affiché en texte. Seules les adresses HTTP et HTT
 
 La caméra est facultative et nécessite l’autorisation du navigateur sur HTTPS. Aucun son n’est demandé. Elle s’arrête après lecture, si l’onglet est masqué, en quittant la page ou en revenant au mode Créer.
 
+## QR Tools: Lecteur de QR Code
+
+Partagez une page Safari par QR. Lisez les QR des images, créez des codes Wi-Fi et des étiquettes CSV. Exportez PNG, SVG, ZIP ou PDF en local.
+
+[Découvrir l’app](https://qrtools.luopeike.com/fr-FR/qr-tools-app.md)
+
 ## Autres outils QR
 
 - [Générateur de QR Wi-Fi](https://qrtools.luopeike.com/fr-FR/wifi-qr-code-generator.md)

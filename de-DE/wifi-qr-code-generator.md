@@ -16,6 +16,12 @@ Nein. Jeder mit dem QR-Bild kann das Passwort auslesen. Teile ein Gastnetzwerk n
 
 Nein. Erstelle mit den neuen Daten einen neuen Code. Das alte Bild enthält weiterhin das alte Passwort.
 
+## QR Tools: QR Code Scanner
+
+Eine Safari-Seite per QR aufs Handy senden, QR-Bilder lesen, WLAN teilen und CSV-Etiketten erstellen. PNG, SVG, ZIP und PDF lokal exportieren.
+
+[App kennenlernen](https://qrtools.luopeike.com/de-DE/qr-tools-app.md)
+
 ## Weitere QR-Tools
 
 - [Kontakt-QR-Code-Generator](https://qrtools.luopeike.com/de-DE/contact-qr-code-generator.md)

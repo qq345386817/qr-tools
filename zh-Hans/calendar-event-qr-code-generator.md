@@ -16,6 +16,12 @@
 
 二维码打开 Google 日历事件填写页，并非已保存事件。ICS 可导入兼容日历。时区与夏令时检查不能替代一次实际试导入。
 
+## QR Tools 二维码扫描与生成
+
+把 Safari 当前页变成二维码，在另一台设备继续打开。也可读取图片、分享 Wi-Fi、制作 CSV 标签，并在设备上导出 PNG、SVG、ZIP 或 PDF。
+
+[了解 App](https://qrtools.luopeike.com/zh-Hans/qr-tools-app.md)
+
 ## 更多二维码工具
 
 - [Wi-Fi 二维码生成器](https://qrtools.luopeike.com/zh-Hans/wifi-qr-code-generator.md)

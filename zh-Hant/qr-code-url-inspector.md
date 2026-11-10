@@ -16,6 +16,12 @@
 
 只檢查本機結構，不查詢網站信譽。連結不會自動開啟；含內嵌憑證的網址須先編輯。
 
+## QR Tools: QRCode 掃描器
+
+把 Safari 目前分頁變成 QR Code，在另一台裝置繼續開啟。也可讀取圖片、分享 Wi-Fi、製作 CSV 標籤，並在裝置上匯出 PNG、SVG、ZIP 或 PDF。
+
+[瞭解 App](https://qrtools.luopeike.com/zh-Hant/qr-tools-app.md)
+
 ## 更多 QR 工具
 
 - [Wi-Fi QR Code 產生器](https://qrtools.luopeike.com/zh-Hant/wifi-qr-code-generator.md)

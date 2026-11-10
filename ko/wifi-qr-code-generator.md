@@ -16,6 +16,12 @@
 
 자동 업데이트되지 않습니다. 새 정보로 QR 코드를 다시 생성하세요. 이전 이미지에는 이전 비밀번호가 남습니다.
 
+## QR Tools QR코드 스캐너·생성기
+
+Safari 페이지를 QR로 만들어 다른 기기에서 여세요. 이미지 QR 읽기, Wi-Fi 공유, CSV 라벨 생성과 기기 내 PNG·SVG·ZIP·PDF 내보내기도 지원합니다.
+
+[앱 알아보기](https://qrtools.luopeike.com/ko/qr-tools-app.md)
+
 ## 다른 QR 도구
 
 - [연락처 QR 코드 생성기](https://qrtools.luopeike.com/ko/contact-qr-code-generator.md)

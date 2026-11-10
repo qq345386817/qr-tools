@@ -16,6 +16,12 @@
 
 QRは静的です。パスワードやリンクが変わったら案内板を交換してください。Wi-Fi QRの所持者はパスワードを読めます。
 
+## QR Tools QRコードリーダー・作成
+
+SafariのページをQRにして別の端末へ。画像のQR読み取り、Wi-Fi共有、CSVラベル作成にも対応。PNG・SVG・ZIP・PDFを端末内で書き出せます。
+
+[Appについて](https://qrtools.luopeike.com/ja/qr-tools-app.md)
+
 ## その他のQRツール
 
 - [Wi-Fi QRコード作成](https://qrtools.luopeike.com/ja/wifi-qr-code-generator.md)

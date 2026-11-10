@@ -16,6 +16,12 @@ Non. Toute personne disposant de l’image peut lire le mot de passe. Partagez u
 
 Non. Créez un nouveau QR avec les nouvelles données. L’ancienne image contient toujours l’ancien mot de passe.
 
+## QR Tools: Lecteur de QR Code
+
+Partagez une page Safari par QR. Lisez les QR des images, créez des codes Wi-Fi et des étiquettes CSV. Exportez PNG, SVG, ZIP ou PDF en local.
+
+[Découvrir l’app](https://qrtools.luopeike.com/fr-FR/qr-tools-app.md)
+
 ## Autres outils QR
 
 - [Générateur de QR de contact](https://qrtools.luopeike.com/fr-FR/contact-qr-code-generator.md)

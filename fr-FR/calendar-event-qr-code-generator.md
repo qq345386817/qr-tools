@@ -16,6 +16,12 @@ Non. Tout est traité dans le navigateur, sans compte ni historique persistant. 
 
 Le QR ouvre un formulaire Google Agenda, pas un événement enregistré. Le fichier ICS peut être importé dans un calendrier compatible. Effectuez un import de test.
 
+## QR Tools: Lecteur de QR Code
+
+Partagez une page Safari par QR. Lisez les QR des images, créez des codes Wi-Fi et des étiquettes CSV. Exportez PNG, SVG, ZIP ou PDF en local.
+
+[Découvrir l’app](https://qrtools.luopeike.com/fr-FR/qr-tools-app.md)
+
 ## Autres outils QR
 
 - [Générateur de QR Wi-Fi](https://qrtools.luopeike.com/fr-FR/wifi-qr-code-generator.md)

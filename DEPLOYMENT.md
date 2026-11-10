@@ -92,6 +92,18 @@ token contrast, stylesheet consistency and existing engine/SEO checks.
 
 ## Search and AI Content
 
+`src/app-locales.mjs` contains the reviewed eight-language App introduction,
+matched to the 2026-11-10 App Store name, subtitle and promotional copy. The
+`/qr-tools-app` page in every language distinguishes the browser tools, native
+reader/generator, manual local history and Safari current-page extension. Its
+visible text, SoftwareApplication structured data and Markdown use the same
+source. Do not claim browser-tab access on the website, synced browser sessions,
+hosted dynamic QR codes or a website safety guarantee.
+
+Actual native App screenshots are in `images/app/`. Refresh these from the
+parent App's verified screenshot workflow; do not replace them with UI mockups.
+The sitemap includes the eight localized App pages (101 canonical URLs total).
+
 `src/seo.mjs` owns the tool-specific search titles, descriptions and visible
 questions for all eight languages. Titles describe the real online tools;
 answers explain static QR codes, privacy, supported formats and limitations.
@@ -106,6 +118,25 @@ Cloudflare Pages reads `_headers` to serve Markdown as `text/markdown` with
 `X-Robots-Tag: noindex, follow`; search indexing stays focused on the canonical
 HTML pages. Markdown and `llms.txt` are deliberately excluded from the sitemap.
 Keep `robots.txt` crawlable and verify actual Google fetches in URL Inspection.
+
+## Bing and IndexNow
+
+`indexnow.json` is restricted to `qrtools.luopeike.com`. Its key is a public
+ownership-verification value, not an account credential. Keep the matching root
+TXT file publicly accessible with an HTTP 200 response.
+
+After deployment, notify participating search engines of the canonical pages:
+
+```sh
+npm run indexnow                 # Dry run; no network submission
+npm run indexnow -- --submit     # Verify the live key and sitemap, then notify
+```
+
+The script refuses another host, non-HTTPS URLs, Markdown resources, or a live
+sitemap that differs from the local one. HTTP 200/202 is submission acceptance,
+not proof of crawling, indexing, rankings or removal of dashboard warnings.
+Bing's high-quality-inbound-links recommendation requires genuine editorial
+links; it cannot be resolved by invented backlinks or structured data.
 
 Old `.html` URLs permanently redirect to the clean canonical routes. They are
 expected to remain in GSC's redirect exclusion list, even if someone previously

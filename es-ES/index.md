@@ -20,6 +20,12 @@ PNG sirve para compartir imágenes y documentos. SVG mantiene su nitidez al camb
 
 Pega la URL de la página en el sitio. Las extensiones Safari y Chrome obtienen directamente la URL de la pestaña actual; el sitio no puede leer otras pestañas.
 
+## QR Tools: Lector y Generador
+
+Comparte una página de Safari por QR. Lee QR de imágenes, crea códigos Wi-Fi y etiquetas CSV. Exporta PNG, SVG, ZIP o PDF en tu dispositivo.
+
+[Conoce la app](https://qrtools.luopeike.com/es-ES/qr-tools-app.md)
+
 ## Más herramientas QR
 
 - [Generador de QR Wi-Fi](https://qrtools.luopeike.com/es-ES/wifi-qr-code-generator.md)

@@ -16,6 +16,12 @@ No. Input and output are processed in this browser, without an account or persis
 
 Only local structure is inspected, not site reputation. Links never open automatically; credential-bearing URLs cannot be opened until edited.
 
+## QR Tools: QR Code Reader
+
+Read a QR image or move a Safari page to your phone. Create Wi-Fi codes and CSV labels, then export PNG, SVG, ZIP or PDF with local QR processing.
+
+[Explore the App](https://qrtools.luopeike.com/qr-tools-app.md)
+
 ## More QR tools
 
 - [Wi-Fi QR code generator](https://qrtools.luopeike.com/wifi-qr-code-generator.md)

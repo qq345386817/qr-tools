@@ -16,6 +16,12 @@
 
 QRはGoogleカレンダーの予定入力画面を開きます。予定は自動保存されません。ICSは対応カレンダーに読み込めます。日時確認後も試し読み込みが必要です。
 
+## QR Tools QRコードリーダー・作成
+
+SafariのページをQRにして別の端末へ。画像のQR読み取り、Wi-Fi共有、CSVラベル作成にも対応。PNG・SVG・ZIP・PDFを端末内で書き出せます。
+
+[Appについて](https://qrtools.luopeike.com/ja/qr-tools-app.md)
+
 ## その他のQRツール
 
 - [Wi-Fi QRコード作成](https://qrtools.luopeike.com/ja/wifi-qr-code-generator.md)

@@ -16,6 +16,12 @@ QR内容、実際のホスト名、プロトコル、URLパラメーターをロ
 
 構造のみ確認し、評判は照会しません。リンクは自動で開きません。認証情報付きURLは編集が必要です。
 
+## QR Tools QRコードリーダー・作成
+
+SafariのページをQRにして別の端末へ。画像のQR読み取り、Wi-Fi共有、CSVラベル作成にも対応。PNG・SVG・ZIP・PDFを端末内で書き出せます。
+
+[Appについて](https://qrtools.luopeike.com/ja/qr-tools-app.md)
+
 ## その他のQRツール
 
 - [Wi-Fi QRコード作成](https://qrtools.luopeike.com/ja/wifi-qr-code-generator.md)

@@ -16,6 +16,12 @@ Es un QR vCard estático, no un perfil alojado. Para cambiar el teléfono u otro
 
 Incluye solo los datos que quieras dar al destinatario. Cualquiera con la imagen puede copiarla y leerla. El sitio no exige cuenta ni guarda tu tarjeta.
 
+## QR Tools: Lector y Generador
+
+Comparte una página de Safari por QR. Lee QR de imágenes, crea códigos Wi-Fi y etiquetas CSV. Exporta PNG, SVG, ZIP o PDF en tu dispositivo.
+
+[Conoce la app](https://qrtools.luopeike.com/es-ES/qr-tools-app.md)
+
 ## Más herramientas QR
 
 - [Generador de QR Wi-Fi](https://qrtools.luopeike.com/es-ES/wifi-qr-code-generator.md)

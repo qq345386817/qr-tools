@@ -16,6 +16,12 @@ No. Anyone with the QR image can read its encoded password. Share a guest-networ
 
 Generate a new Wi-Fi QR code using the new details. The old image does not update automatically and will still contain the old password.
 
+## QR Tools: QR Code Reader
+
+Read a QR image or move a Safari page to your phone. Create Wi-Fi codes and CSV labels, then export PNG, SVG, ZIP or PDF with local QR processing.
+
+[Explore the App](https://qrtools.luopeike.com/qr-tools-app.md)
+
 ## More QR tools
 
 - [Contact QR code generator](https://qrtools.luopeike.com/contact-qr-code-generator.md)

@@ -16,6 +16,12 @@ Dies ist ein statischer vCard-Code, kein gehostetes Onlineprofil. Ändern sich T
 
 Gib nur die Daten ein, die Empfänger erhalten sollen. QR-Bilder können kopiert und von jedem mit dem Bild gelesen werden. Die Website benötigt kein Konto und speichert deine Kontaktkarte nicht.
 
+## QR Tools: QR Code Scanner
+
+Eine Safari-Seite per QR aufs Handy senden, QR-Bilder lesen, WLAN teilen und CSV-Etiketten erstellen. PNG, SVG, ZIP und PDF lokal exportieren.
+
+[App kennenlernen](https://qrtools.luopeike.com/de-DE/qr-tools-app.md)
+
 ## Weitere QR-Tools
 
 - [WLAN-QR-Code-Generator](https://qrtools.luopeike.com/de-DE/wifi-qr-code-generator.md)
