@@ -18,7 +18,7 @@ Le QR ouvre un formulaire Google Agenda, pas un événement enregistré. Le fich
 
 ## QR Tools: Lecteur de QR Code
 
-Partagez une page Safari par QR. Lisez les QR des images, créez des codes Wi-Fi et des étiquettes CSV. Exportez PNG, SVG, ZIP ou PDF en local.
+QR Tools 1.6.0 · Plusieurs QR codes sur une page PDF ? Choisissez celui à lire. Avant d’imprimer vos étiquettes, comparez les codes du PDF final au contenu de votre CSV.
 
 [Découvrir l’app](https://qrtools.luopeike.com/fr-FR/qr-tools-app.md)
 

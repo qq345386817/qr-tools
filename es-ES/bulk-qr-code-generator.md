@@ -18,7 +18,7 @@ Máximo 100 códigos y CSV de 1 MB. Ocho etiquetas por hoja. Prueba una etiqueta
 
 ## QR Tools: Lector y Generador
 
-Comparte una página de Safari por QR. Lee QR de imágenes, crea códigos Wi-Fi y etiquetas CSV. Exporta PNG, SVG, ZIP o PDF en tu dispositivo.
+En hojas Avery 5160 de tamaño carta (US Letter), indica la primera casilla libre. Antes de imprimir, la app lee cada casilla ocupada del PDF final y la compara con su fila del CSV.
 
 [Conoce la app](https://qrtools.luopeike.com/es-ES/qr-tools-app.md)
 

@@ -35,6 +35,15 @@ test('native App pages, visible copy and agent documents agree in every language
     assert.equal(entity.aggregateRating, undefined);
     assert.equal(entity.operatingSystem, 'iOS, iPadOS, macOS');
     assert.equal(entity.featureList.length, 6);
+    assert.ok(entity.description.includes('1.6.0'));
+    assert.ok(entity.featureList.some((feature) => feature.includes('Avery 5160')));
+    assert.ok(markdown.includes('localhost') && markdown.includes('29') && markdown.includes('30'));
+    for (const [slug, copy] of [['qr-code-reader', app.readerPromo], ['bulk-qr-code-generator', app.batchPromo]]) {
+      const tool = await readFile(`${locale.path}${slug}.html`, 'utf8');
+      const agent = await readFile(`${locale.path}${slug}.md`, 'utf8');
+      assert.ok(text(parse(tool)).includes(copy) && agent.includes(copy));
+      assert.ok(!tool.match(/<meta name="description"[^>]*>/)[0].includes('5160'));
+    }
     const screenshot = attr(find(html, (node) => attr(node, 'class') === 'app-screenshot')[0], 'src');
     assert.ok((await readFile(`.${screenshot}`)).length > 1000, `${code}: real App screenshot`);
     assert.ok((await readFile(`${locale.path}index.html`, 'utf8')).includes(`href="/${file}"`));

@@ -18,7 +18,7 @@
 
 ## QR Tools: QRCode 掃描器
 
-把 Safari 目前分頁變成 QR Code，在另一台裝置繼續開啟。也可讀取圖片、分享 Wi-Fi、製作 CSV 標籤，並在裝置上匯出 PNG、SVG、ZIP 或 PDF。
+使用 US Letter 的 Avery 5160 標籤紙時，可從第一個空位接續列印。列印前逐格讀取最終 PDF，並與對應的 CSV 資料列比對。
 
 [瞭解 App](https://qrtools.luopeike.com/zh-Hant/qr-tools-app.md)
 

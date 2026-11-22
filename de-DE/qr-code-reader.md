@@ -18,7 +18,7 @@ Die Kamera ist optional und erfordert eine Browserberechtigung auf HTTPS. Audio 
 
 ## QR Tools: QR Code Scanner
 
-Eine Safari-Seite per QR aufs Handy senden, QR-Bilder lesen, WLAN teilen und CSV-Etiketten erstellen. PNG, SVG, ZIP und PDF lokal exportieren.
+Auf einer PDF-Seite oder in einem Foto den gewünschten QR-Code anhand seiner Nummer wählen und vor dem Öffnen das Ziel prüfen.
 
 [App kennenlernen](https://qrtools.luopeike.com/de-DE/qr-tools-app.md)
 

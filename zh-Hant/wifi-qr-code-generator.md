@@ -18,7 +18,7 @@ QR Code 包含網路名稱、安全類型和密碼，也可包含隱藏網路標
 
 ## QR Tools: QRCode 掃描器
 
-把 Safari 目前分頁變成 QR Code，在另一台裝置繼續開啟。也可讀取圖片、分享 Wi-Fi、製作 CSV 標籤，並在裝置上匯出 PNG、SVG、ZIP 或 PDF。
+QR Tools 1.6.0 · 活動手冊裡有好幾個 QR Code？直接開啟 PDF，翻到該頁就能點選要讀的碼。大量列印標籤前，也能逐格核對輸出的 PDF 與 CSV 內容。
 
 [瞭解 App](https://qrtools.luopeike.com/zh-Hant/qr-tools-app.md)
 

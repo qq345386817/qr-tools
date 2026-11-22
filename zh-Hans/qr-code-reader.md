@@ -18,7 +18,7 @@
 
 ## QR Tools 二维码扫描与生成
 
-把 Safari 当前页变成二维码，在另一台设备继续打开。也可读取图片、分享 Wi-Fi、制作 CSV 标签，并在设备上导出 PNG、SVG、ZIP 或 PDF。
+翻到 PDF 中的一页，或导入一张图片，按编号选择二维码，查看目标后再决定是否打开。
 
 [了解 App](https://qrtools.luopeike.com/zh-Hans/qr-tools-app.md)
 

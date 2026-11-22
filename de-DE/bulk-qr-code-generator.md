@@ -18,7 +18,7 @@ Maximal 100 Codes und 1 MB CSV. Acht Etiketten pro Blatt. Vor der Verteilung ein
 
 ## QR Tools: QR Code Scanner
 
-Eine Safari-Seite per QR aufs Handy senden, QR-Bilder lesen, WLAN teilen und CSV-Etiketten erstellen. PNG, SVG, ZIP und PDF lokal exportieren.
+Bei Avery 5160 im US-Letter-Format am ersten freien Etikett fortsetzen. Die Druckprüfung liest jede belegte Position im fertigen PDF und vergleicht sie mit der CSV-Zeile.
 
 [App kennenlernen](https://qrtools.luopeike.com/de-DE/qr-tools-app.md)
 

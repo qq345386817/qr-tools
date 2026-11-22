@@ -18,7 +18,7 @@ The batch is limited to 100 codes and a 1 MB CSV. Printing uses eight labels per
 
 ## QR Tools: QR Code Reader
 
-Read a QR image or move a Safari page to your phone. Create Wi-Fi codes and CSV labels, then export PNG, SVG, ZIP or PDF with local QR processing.
+On US Letter Avery 5160 sheets, set the first unused label. Preflight reads each occupied cell in the finished PDF and compares it with its CSV row.
 
 [Explore the App](https://qrtools.luopeike.com/qr-tools-app.md)
 

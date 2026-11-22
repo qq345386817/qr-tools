@@ -18,7 +18,7 @@ PNG、JPEG、GIF、WebP、BMP画像やカメラからQRを読み取り。画像�
 
 ## QR Tools QRコードリーダー・作成
 
-SafariのページをQRにして別の端末へ。画像のQR読み取り、Wi-Fi共有、CSVラベル作成にも対応。PNG・SVG・ZIP・PDFを端末内で書き出せます。
+PDFのページや写真に複数のQRコードがあるときは、番号を選び、リンク先を確認してから開けます。
 
 [Appについて](https://qrtools.luopeike.com/ja/qr-tools-app.md)
 

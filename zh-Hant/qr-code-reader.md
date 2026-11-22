@@ -18,7 +18,7 @@
 
 ## QR Tools: QRCode 掃描器
 
-把 Safari 目前分頁變成 QR Code，在另一台裝置繼續開啟。也可讀取圖片、分享 Wi-Fi、製作 CSV 標籤，並在裝置上匯出 PNG、SVG、ZIP 或 PDF。
+翻到 PDF 的某一頁，或匯入一張圖片，按編號選擇 QR 碼，先檢視目的地再決定是否開啟。
 
 [瞭解 App](https://qrtools.luopeike.com/zh-Hant/qr-tools-app.md)
 

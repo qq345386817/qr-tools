@@ -93,7 +93,7 @@ token contrast, stylesheet consistency and existing engine/SEO checks.
 ## Search and AI Content
 
 `src/app-locales.mjs` contains the reviewed eight-language App introduction,
-matched to the 2026-11-10 App Store name, subtitle and promotional copy. The
+with version-qualified 1.6.0 PDF reading, label preflight and LAN handoff copy. The
 `/qr-tools-app` page in every language distinguishes the browser tools, native
 reader/generator, manual local history and Safari current-page extension. Its
 visible text, SoftwareApplication structured data and Markdown use the same

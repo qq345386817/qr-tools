@@ -18,7 +18,7 @@ El QR abre un formulario de Google Calendar, no un evento guardado. ICS se impor
 
 ## QR Tools: Lector y Generador
 
-Comparte una página de Safari por QR. Lee QR de imágenes, crea códigos Wi-Fi y etiquetas CSV. Exporta PNG, SVG, ZIP o PDF en tu dispositivo.
+QR Tools 1.6.0 · ¿Hay varios códigos QR en una página de un PDF? Elige el que quieres leer. Antes de imprimir etiquetas, compara los códigos del PDF final con los datos de tu CSV.
 
 [Conoce la app](https://qrtools.luopeike.com/es-ES/qr-tools-app.md)
 

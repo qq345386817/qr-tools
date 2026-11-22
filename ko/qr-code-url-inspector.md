@@ -18,7 +18,7 @@ QR 내용과 실제 호스트, 프로토콜, URL 매개변수를 로컬로 확�
 
 ## QR Tools QR코드 스캐너·생성기
 
-Safari 페이지를 QR로 만들어 다른 기기에서 여세요. 이미지 QR 읽기, Wi-Fi 공유, CSV 라벨 생성과 기기 내 PNG·SVG·ZIP·PDF 내보내기도 지원합니다.
+QR Tools 1.6.0 · 안내문 PDF에 QR 코드가 여러 개 있어도 화면을 캡처할 필요가 없습니다. 페이지에서 읽을 코드를 고르세요. 라벨을 인쇄하기 전에는 완성된 PDF의 각 코드를 CSV 원본과 대조할 수 있습니다.
 
 [앱 알아보기](https://qrtools.luopeike.com/ko/qr-tools-app.md)
 

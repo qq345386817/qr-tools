@@ -35,18 +35,20 @@ Codes are static: encoded content does not update after distribution. This is no
 
 ## Native App and Safari Extension
 
+In the native App 1.6.0, select a numbered code on a PDF page or in an image. The browser reader finds one code at a time and does not import PDFs. The native App can resume a 30-label US Letter Avery 5160 sheet at any slot: starting at 29 places three labels at 29, 30 and then 1 on the next sheet. Preflight decodes the final PDF and compares each occupied cell with its CSV row; only a physical proof checks printer alignment. The website prints eight labels per sheet. For localhost links the extension can replace the hostname with a reachable LAN host while keeping port and path; it does not publish a local server.
+
 QR Tools: QR Code Reader is also a native iPhone, iPad and Mac app. It reads QR images or an available camera, generates six content types, imports up to 100 CSV labels, exports PNG/SVG/ZIP/PDF, makes printable signs and creates calendar-link QR codes with separate ICS files. Only explicitly saved content enters local App history. QR generation, decoding and CSV processing are local; opening a website or online calendar link uses that service. Local URL checks are not a website safety guarantee.
 
 Enable QR Tools in Safari extension settings, open it on the current page, then scan the QR with another device to open the same address. Users can edit text or URLs and optionally remove tracking parameters, copy the image or save PNG/SVG. This shares an address, not a browser session. The native App includes the Safari extension; the desktop Chrome extension is a separate install. The website cannot read other tabs and does not save history.
 
-- [QR Tools: QR Code Reader](https://qrtools.luopeike.com/qr-tools-app.md): Read a QR image or move a Safari page to your phone. Create Wi-Fi codes and CSV labels, then export PNG, SVG, ZIP or PDF with local QR processing.
-- [QR Tools 二维码扫描与生成](https://qrtools.luopeike.com/zh-Hans/qr-tools-app.md): 把 Safari 当前页变成二维码，在另一台设备继续打开。也可读取图片、分享 Wi-Fi、制作 CSV 标签，并在设备上导出 PNG、SVG、ZIP 或 PDF。
-- [QR Tools: QRCode 掃描器](https://qrtools.luopeike.com/zh-Hant/qr-tools-app.md): 把 Safari 目前分頁變成 QR Code，在另一台裝置繼續開啟。也可讀取圖片、分享 Wi-Fi、製作 CSV 標籤，並在裝置上匯出 PNG、SVG、ZIP 或 PDF。
-- [QR Tools QRコードリーダー・作成](https://qrtools.luopeike.com/ja/qr-tools-app.md): SafariのページをQRにして別の端末へ。画像のQR読み取り、Wi-Fi共有、CSVラベル作成にも対応。PNG・SVG・ZIP・PDFを端末内で書き出せます。
-- [QR Tools QR코드 스캐너·생성기](https://qrtools.luopeike.com/ko/qr-tools-app.md): Safari 페이지를 QR로 만들어 다른 기기에서 여세요. 이미지 QR 읽기, Wi-Fi 공유, CSV 라벨 생성과 기기 내 PNG·SVG·ZIP·PDF 내보내기도 지원합니다.
-- [QR Tools: QR Code Scanner](https://qrtools.luopeike.com/de-DE/qr-tools-app.md): Eine Safari-Seite per QR aufs Handy senden, QR-Bilder lesen, WLAN teilen und CSV-Etiketten erstellen. PNG, SVG, ZIP und PDF lokal exportieren.
-- [QR Tools: Lecteur de QR Code](https://qrtools.luopeike.com/fr-FR/qr-tools-app.md): Partagez une page Safari par QR. Lisez les QR des images, créez des codes Wi-Fi et des étiquettes CSV. Exportez PNG, SVG, ZIP ou PDF en local.
-- [QR Tools: Lector y Generador](https://qrtools.luopeike.com/es-ES/qr-tools-app.md): Comparte una página de Safari por QR. Lee QR de imágenes, crea códigos Wi-Fi y etiquetas CSV. Exporta PNG, SVG, ZIP o PDF en tu dispositivo.
+- [QR Tools: QR Code Reader](https://qrtools.luopeike.com/qr-tools-app.md): QR Tools 1.6.0 · QR codes in a PDF? Pick the code you need, even when several share a page. For a print run, check the finished label sheet against your CSV before printing.
+- [QR Tools 二维码扫描与生成](https://qrtools.luopeike.com/zh-Hans/qr-tools-app.md): QR Tools 1.6.0 · 活动手册里有好几个二维码？直接打开 PDF，翻到那一页，点选要读的码。批量印标签前，还可以逐格核对成品 PDF 和 CSV 里的内容。
+- [QR Tools: QRCode 掃描器](https://qrtools.luopeike.com/zh-Hant/qr-tools-app.md): QR Tools 1.6.0 · 活動手冊裡有好幾個 QR Code？直接開啟 PDF，翻到該頁就能點選要讀的碼。大量列印標籤前，也能逐格核對輸出的 PDF 與 CSV 內容。
+- [QR Tools QRコードリーダー・作成](https://qrtools.luopeike.com/ja/qr-tools-app.md): QR Tools 1.6.0 · PDFの案内状にQRコードがいくつも並んでいても、スクリーンショットは不要。ページを開いて読みたいコードを選べます。ラベルを印刷する前に、完成したPDFをCSVと照合することもできます。
+- [QR Tools QR코드 스캐너·생성기](https://qrtools.luopeike.com/ko/qr-tools-app.md): QR Tools 1.6.0 · 안내문 PDF에 QR 코드가 여러 개 있어도 화면을 캡처할 필요가 없습니다. 페이지에서 읽을 코드를 고르세요. 라벨을 인쇄하기 전에는 완성된 PDF의 각 코드를 CSV 원본과 대조할 수 있습니다.
+- [QR Tools: QR Code Scanner](https://qrtools.luopeike.com/de-DE/qr-tools-app.md): QR Tools 1.6.0 · Mehrere QR-Codes auf einer PDF-Seite? Wähle den gewünschten Code direkt aus. Gleiche vor dem Etikettendruck die Codes im fertigen PDF mit deiner CSV-Datei ab.
+- [QR Tools: Lecteur de QR Code](https://qrtools.luopeike.com/fr-FR/qr-tools-app.md): QR Tools 1.6.0 · Plusieurs QR codes sur une page PDF ? Choisissez celui à lire. Avant d’imprimer vos étiquettes, comparez les codes du PDF final au contenu de votre CSV.
+- [QR Tools: Lector y Generador](https://qrtools.luopeike.com/es-ES/qr-tools-app.md): QR Tools 1.6.0 · ¿Hay varios códigos QR en una página de un PDF? Elige el que quieres leer. Antes de imprimir etiquetas, compara los códigos del PDF final con los datos de tu CSV.
 
 ## Optional
 

@@ -22,7 +22,7 @@ Paste the page URL into the website to create its QR code. The Safari and Chrome
 
 ## QR Tools: QR Code Reader
 
-Read a QR image or move a Safari page to your phone. Create Wi-Fi codes and CSV labels, then export PNG, SVG, ZIP or PDF with local QR processing.
+QR Tools 1.6.0 · QR codes in a PDF? Pick the code you need, even when several share a page. For a print run, check the finished label sheet against your CSV before printing.
 
 [Explore the App](https://qrtools.luopeike.com/qr-tools-app.md)
 

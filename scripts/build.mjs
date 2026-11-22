@@ -23,6 +23,10 @@ const stylesheetVersion = await version('style/tool.css');
 const tokenVersion = await version('style/tokens.css');
 const baseVersion = await version('style/base.css');
 
+function nativePromo(app, page) {
+  return ({ reader: app.readerPromo, batch: app.batchPromo })[page.seoKey] ?? app.description;
+}
+
 function renderPage(code, locale, page) {
   const { ui, fields, extra } = locale;
   const labels = interfaceLocales[code];
@@ -142,7 +146,7 @@ ${copy ? `    <p class="page-summary">${escape(copy)}</p>` : ''}
     </section>
     ${workflowPanels(locale, extra, page.mode, { escape, icon, command })}
     <p class="privacy-note">${icon('shield-check')}${escape(ui.localPrivacy)}</p>
-    <section class="app-band"><img src="${prefix}favicon/apple-touch-icon.png" width="56" height="56" alt=""><div><h2>${escape(app.name)}</h2><p>${escape(app.description)}</p><a href="/${locale.path}${appSlug}">${escape(app.learnMore)}${icon('arrow-up-right')}</a></div><a class="secondary-button" href="https://apps.apple.com/app/id6526476285"><img src="${prefix}images/app-store-icon.svg" width="20" height="20" alt="">App Store${icon('arrow-up-right')}</a></section>
+    <section class="app-band"><img src="${prefix}favicon/apple-touch-icon.png" width="56" height="56" alt=""><div><h2>${escape(app.name)}</h2><p>${escape(nativePromo(app, page))}</p><a href="/${locale.path}${appSlug}">${escape(app.learnMore)}${icon('arrow-up-right')}</a></div><a class="secondary-button" href="https://apps.apple.com/app/id6526476285"><img src="${prefix}images/app-store-icon.svg" width="20" height="20" alt="">App Store${icon('arrow-up-right')}</a></section>
     <section class="qr-questions" aria-labelledby="questions-heading"><h2 id="questions-heading">${escape(seo[code].faqHeading)}</h2>${content.questions.map(([question, answer]) => `<details><summary>${escape(question)}</summary><p>${escape(answer)}</p></details>`).join('')}</section>
     <section class="tool-links"><h2>${escape(ui.guides)}</h2><div>${links}<a href="https://chromewebstore.google.com/detail/qr-tools-customizable/pmilkclbidnbagfonjnbdnegneifogpl">${escape(ui.chrome)}${icon('arrow-up-right')}</a>${code === 'en' ? staticGuideLinks.map(([slug, text]) => `<a href="${slug}">${escape(text)}${icon('arrow-up-right')}</a>`).join('') : ''}</div></section>
     <noscript><p>${escape(ui.notSupported)}</p><a href="https://apps.apple.com/app/id6526476285">App Store</a></noscript>
@@ -162,7 +166,7 @@ for (const [code, locale] of Object.entries(locales)) {
     const canonical = `${origin}/${locale.path}${page.slug}`;
     const related = pages.filter((entry) => entry.slug && entry.slug !== page.slug).map((entry) => `- [${locale.ui[entry.titleKey]}](${origin}/${locale.path}${entry.slug}.md)`).join('\n');
     const app = appLocales[code];
-    const markdown = `# ${content.title}\n\n${content.description}\n\n[${page.titleKey ? locale.ui[page.titleKey] : locale.title}](${canonical})\n\n${content.questions.map(([question, answer]) => `## ${question}\n\n${answer}`).join('\n\n')}\n\n## ${app.name}\n\n${app.description}\n\n[${app.learnMore}](${origin}/${locale.path}${appSlug}.md)\n\n## ${locale.ui.guides}\n\n${related}\n\n---\n\nQR Tools: ${origin}/\nCanonical page: ${canonical}\nLanguage: ${code}\n`;
+    const markdown = `# ${content.title}\n\n${content.description}\n\n[${page.titleKey ? locale.ui[page.titleKey] : locale.title}](${canonical})\n\n${content.questions.map(([question, answer]) => `## ${question}\n\n${answer}`).join('\n\n')}\n\n## ${app.name}\n\n${nativePromo(app, page)}\n\n[${app.learnMore}](${origin}/${locale.path}${appSlug}.md)\n\n## ${locale.ui.guides}\n\n${related}\n\n---\n\nQR Tools: ${origin}/\nCanonical page: ${canonical}\nLanguage: ${code}\n`;
     await writeFile(resolve(root, `${locale.path}${page.slug || 'index'}.md`), markdown);
   }
   const [heading, message] = notFound[code];
@@ -201,6 +205,8 @@ ${Object.entries(locales).filter(([code]) => code !== 'en').map(([, locale]) => 
 - [Privacy policy](${origin}/privacy-policy): Local processing and data handling.
 
 ## Native App and Safari Extension
+
+In the native App 1.6.0, select a numbered code on a PDF page or in an image. The browser reader finds one code at a time and does not import PDFs. The native App can resume a 30-label US Letter Avery 5160 sheet at any slot: starting at 29 places three labels at 29, 30 and then 1 on the next sheet. Preflight decodes the final PDF and compares each occupied cell with its CSV row; only a physical proof checks printer alignment. The website prints eight labels per sheet. For localhost links the extension can replace the hostname with a reachable LAN host while keeping port and path; it does not publish a local server.
 
 QR Tools: QR Code Reader is also a native iPhone, iPad and Mac app. It reads QR images or an available camera, generates six content types, imports up to 100 CSV labels, exports PNG/SVG/ZIP/PDF, makes printable signs and creates calendar-link QR codes with separate ICS files. Only explicitly saved content enters local App history. QR generation, decoding and CSV processing are local; opening a website or online calendar link uses that service. Local URL checks are not a website safety guarantee.
 

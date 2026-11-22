@@ -2,7 +2,7 @@
 
 Generator, WLAN & Etiketten
 
-Eine Safari-Seite per QR aufs Handy senden, QR-Bilder lesen, WLAN teilen und CSV-Etiketten erstellen. PNG, SVG, ZIP und PDF lokal exportieren.
+QR Tools 1.6.0 · Mehrere QR-Codes auf einer PDF-Seite? Wähle den gewünschten Code direkt aus. Gleiche vor dem Etikettendruck die Codes im fertigen PDF mit deiner CSV-Datei ab.
 
 [Im App Store laden](https://apps.apple.com/app/id6526476285)
 
@@ -14,9 +14,9 @@ Eine Safari-Seite per QR aufs Handy senden, QR-Bilder lesen, WLAN teilen und CSV
 
 ## Auf dem Gerät lesen, erstellen und exportieren
 
-### QR-Leser und Scanner
+### QR-Codes aus PDF, Bild und Kamera
 
-Bilder importieren oder eine verfügbare Kamera nutzen. Das Ziel vor dem Öffnen prüfen; lokale URL-Prüfungen garantieren keine sichere Website.
+Bilder importieren oder eine verfügbare Kamera nutzen. Das Ziel vor dem Öffnen prüfen; lokale URL-Prüfungen garantieren keine sichere Website. Auf einer PDF-Seite oder in einem Foto den gewünschten QR-Code anhand seiner Nummer wählen und vor dem Öffnen das Ziel prüfen.
 
 ### WLAN, Kontakte und Text
 
@@ -24,7 +24,7 @@ Codes für URL, Text, WLAN, E-Mail, SMS und vCard erstellen. Farben und Fehlerko
 
 ### CSV-Stapeletiketten
 
-Bis zu 100 Etiketten importieren. PNG/SVG als ZIP oder A4-/Letter-PDF drucken. Dichte Codes benötigen gegebenenfalls ein größeres Druckformat.
+Bis zu 100 Etiketten importieren. PNG/SVG als ZIP oder A4-/Letter-PDF drucken. Dichte Codes benötigen gegebenenfalls ein größeres Druckformat. Bei Avery 5160 im US-Letter-Format am ersten freien Etikett fortsetzen. Die Druckprüfung liest jede belegte Position im fertigen PDF und vergleicht sie mit der CSV-Zeile.
 
 ### Druckbare Schilder
 
@@ -41,6 +41,14 @@ QR-Erzeugung, Bildlesen und CSV-Verarbeitung erfolgen auf dem Gerät, ohne Konto
 ## Website, App und Erweiterungen
 
 Die Website arbeitet im Browser ohne Konto oder gespeicherten Verlauf. Die App für iPhone, iPad und Mac ergänzt manuell gespeicherte Inhalte sowie Systemdateien, Fotos, Druck und Kalender. Den aktuellen Safari-Tab liest die Erweiterung, nicht die Website. Die Desktop-Chrome-Erweiterung wird separat installiert.
+
+## Kann ich bei Etikett 29 starten?
+
+Ja. Drei gültige Zeilen belegen Platz 29 und 30 auf dem ersten Bogen und Platz 1 auf dem nächsten. Abweichende Inhalte und unlesbare Codes werden unterschieden. Die Ausrichtung am Drucker per Probedruck prüfen.
+
+## Warum öffnet mein Handy den localhost-Link nicht?
+
+localhost bezeichnet das Handy selbst. In der Erweiterung den Host von Hand durch eine vom Handy erreichbare LAN-Adresse ersetzen. Port und Pfad bleiben erhalten; der Server wird nicht öffentlich zugänglich.
 
 ## Kann ich einen Safari-Tab ans Handy senden?
 

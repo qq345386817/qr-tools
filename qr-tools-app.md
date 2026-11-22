@@ -2,7 +2,7 @@
 
 Generator, WiFi & Batch Export
 
-Read a QR image or move a Safari page to your phone. Create Wi-Fi codes and CSV labels, then export PNG, SVG, ZIP or PDF with local QR processing.
+QR Tools 1.6.0 · QR codes in a PDF? Pick the code you need, even when several share a page. For a print run, check the finished label sheet against your CSV before printing.
 
 [Download on the App Store](https://apps.apple.com/app/id6526476285)
 
@@ -14,9 +14,9 @@ Read a QR image or move a Safari page to your phone. Create Wi-Fi codes and CSV 
 
 ## Read, create and export on your device
 
-### QR reader and scanner
+### PDF, image and camera QR reader
 
-Import an image or use an available camera. Review the decoded destination before opening a link; local URL checks do not guarantee website safety.
+Import an image or use an available camera. Review the decoded destination before opening a link; local URL checks do not guarantee website safety. Pick a numbered QR code on a PDF page or in a photo and review its destination before opening it.
 
 ### Wi-Fi, contacts and text
 
@@ -24,7 +24,7 @@ Create codes for URLs, text, Wi-Fi, email, SMS and vCard contacts. Customize col
 
 ### CSV batch labels
 
-Import up to 100 QR labels. Export PNG/SVG ZIP archives or A4/Letter PDF label sheets. Dense codes may need a larger print layout.
+Import up to 100 QR labels. Export PNG/SVG ZIP archives or A4/Letter PDF label sheets. Dense codes may need a larger print layout. On US Letter Avery 5160 sheets, set the first unused label. Preflight reads each occupied cell in the finished PDF and compares it with its CSV row.
 
 ### Printable signs
 
@@ -41,6 +41,14 @@ QR generation, image decoding and CSV processing happen on your device. No accou
 ## Website, App and extensions
 
 The website works in this browser without an account or saved history. The native iPhone, iPad and Mac App adds manual local history and system file, photo, print and calendar integration. Its Safari extension reads the current page; the website cannot inspect other tabs. The desktop Chrome extension is a separate installation.
+
+## Can I start at label 29?
+
+Yes. With three valid rows, labels 29 and 30 go on the first sheet and label 1 on the next. A mismatch is different from an unreadable code. Use a paper proof to check printer alignment.
+
+## Why won’t my phone open a localhost link?
+
+On your phone, localhost points to the phone itself. In the extension, replace the host with a LAN address your phone can reach. The port and path stay intact; this does not publish your server.
 
 ## Can I send a Safari tab to my phone?
 

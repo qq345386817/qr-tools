@@ -18,7 +18,7 @@ Non. Tout est traité dans le navigateur, sans compte ni historique persistant. 
 
 ## QR Tools: Lecteur de QR Code
 
-Partagez une page Safari par QR. Lisez les QR des images, créez des codes Wi-Fi et des étiquettes CSV. Exportez PNG, SVG, ZIP ou PDF en local.
+Sur une feuille Avery 5160 au format US Letter, indiquez la première case libre. Avant impression, l’app relit chaque case occupée du PDF final et la compare à la ligne du CSV.
 
 [Découvrir l’app](https://qrtools.luopeike.com/fr-FR/qr-tools-app.md)
 

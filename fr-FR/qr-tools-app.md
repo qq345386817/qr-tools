@@ -2,7 +2,7 @@
 
 Générateur, Wi-Fi et lots CSV
 
-Partagez une page Safari par QR. Lisez les QR des images, créez des codes Wi-Fi et des étiquettes CSV. Exportez PNG, SVG, ZIP ou PDF en local.
+QR Tools 1.6.0 · Plusieurs QR codes sur une page PDF ? Choisissez celui à lire. Avant d’imprimer vos étiquettes, comparez les codes du PDF final au contenu de votre CSV.
 
 [Télécharger sur l’App Store](https://apps.apple.com/app/id6526476285)
 
@@ -14,9 +14,9 @@ Partagez une page Safari par QR. Lisez les QR des images, créez des codes Wi-Fi
 
 ## Lire, créer et exporter sur l’appareil
 
-### Lecteur et scanner QR
+### Lecture QR : PDF, images et caméra
 
-Importez une image ou utilisez une caméra disponible. Vérifiez la destination avant d’ouvrir un lien ; les contrôles locaux ne garantissent pas la sécurité d’un site.
+Importez une image ou utilisez une caméra disponible. Vérifiez la destination avant d’ouvrir un lien ; les contrôles locaux ne garantissent pas la sécurité d’un site. Sur une page de PDF ou une photo, choisissez un code QR par son numéro et vérifiez sa destination avant de l’ouvrir.
 
 ### Wi-Fi, contacts et texte
 
@@ -24,7 +24,7 @@ Créez des QR pour URL, texte, Wi-Fi, e-mail, SMS et vCard. Réglez couleurs et 
 
 ### Étiquettes CSV par lots
 
-Importez jusqu’à 100 étiquettes. Exportez PNG/SVG en ZIP ou imprimez un PDF A4/Letter. Les codes denses peuvent nécessiter un format plus grand.
+Importez jusqu’à 100 étiquettes. Exportez PNG/SVG en ZIP ou imprimez un PDF A4/Letter. Les codes denses peuvent nécessiter un format plus grand. Sur une feuille Avery 5160 au format US Letter, indiquez la première case libre. Avant impression, l’app relit chaque case occupée du PDF final et la compare à la ligne du CSV.
 
 ### Affiches à imprimer
 
@@ -41,6 +41,14 @@ Génération, décodage d’images et traitement CSV restent sur l’appareil, s
 ## Site, app et extensions
 
 Le site fonctionne dans le navigateur sans compte ni historique enregistré. L’app iPhone, iPad et Mac ajoute l’historique manuel et les fonctions système de fichiers, photos, impression et calendrier. L’extension Safari lit la page actuelle ; le site ne lit pas les autres onglets. L’extension Chrome de bureau s’installe séparément.
+
+## Puis-je commencer à la case 29 ?
+
+Oui. Trois lignes valides occupent les cases 29 et 30 de la première feuille, puis la case 1 de la suivante. Un contenu différent est distingué d’un code illisible. Vérifiez l’alignement de l’imprimante sur papier.
+
+## Pourquoi mon téléphone ne peut-il pas ouvrir localhost ?
+
+Sur le téléphone, localhost désigne le téléphone lui-même. Dans l’extension, remplacez l’hôte par une adresse du réseau local accessible depuis le téléphone. Le port et le chemin sont conservés ; le serveur n’est pas rendu public.
 
 ## Puis-je envoyer un onglet Safari vers mon téléphone ?
 

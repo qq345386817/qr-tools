@@ -18,7 +18,7 @@ QRはGoogleカレンダーの予定入力画面を開きます。予定は自動
 
 ## QR Tools QRコードリーダー・作成
 
-SafariのページをQRにして別の端末へ。画像のQR読み取り、Wi-Fi共有、CSVラベル作成にも対応。PNG・SVG・ZIP・PDFを端末内で書き出せます。
+QR Tools 1.6.0 · PDFの案内状にQRコードがいくつも並んでいても、スクリーンショットは不要。ページを開いて読みたいコードを選べます。ラベルを印刷する前に、完成したPDFをCSVと照合することもできます。
 
 [Appについて](https://qrtools.luopeike.com/ja/qr-tools-app.md)
 

@@ -18,7 +18,7 @@ CSVから最大100件のQRラベルを一括作成。PNG/SVG ZIPを保存し、A
 
 ## QR Tools QRコードリーダー・作成
 
-SafariのページをQRにして別の端末へ。画像のQR読み取り、Wi-Fi共有、CSVラベル作成にも対応。PNG・SVG・ZIP・PDFを端末内で書き出せます。
+US LetterのAvery 5160ラベル用紙は、最初の空き位置から再開できます。印刷前に完成したPDFを各位置で読み取り、元のCSV行と照合します。
 
 [Appについて](https://qrtools.luopeike.com/ja/qr-tools-app.md)
 

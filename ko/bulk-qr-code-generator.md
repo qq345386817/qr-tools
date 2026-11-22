@@ -18,7 +18,7 @@ CSV로 최대 100개의 QR 라벨을 일괄 생성하세요. PNG/SVG ZIP 다운�
 
 ## QR Tools QR코드 스캐너·생성기
 
-Safari 페이지를 QR로 만들어 다른 기기에서 여세요. 이미지 QR 읽기, Wi-Fi 공유, CSV 라벨 생성과 기기 내 PNG·SVG·ZIP·PDF 내보내기도 지원합니다.
+US Letter 규격의 Avery 5160 라벨 용지에서 첫 빈칸을 지정할 수 있습니다. 인쇄 전에 최종 PDF의 각 라벨을 읽어 원래 CSV 행과 비교합니다.
 
 [앱 알아보기](https://qrtools.luopeike.com/ko/qr-tools-app.md)
 

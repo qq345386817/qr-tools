@@ -18,7 +18,7 @@ La caméra est facultative et nécessite l’autorisation du navigateur sur HTTP
 
 ## QR Tools: Lecteur de QR Code
 
-Partagez une page Safari par QR. Lisez les QR des images, créez des codes Wi-Fi et des étiquettes CSV. Exportez PNG, SVG, ZIP ou PDF en local.
+Sur une page de PDF ou une photo, choisissez un code QR par son numéro et vérifiez sa destination avant de l’ouvrir.
 
 [Découvrir l’app](https://qrtools.luopeike.com/fr-FR/qr-tools-app.md)
 

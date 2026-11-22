@@ -18,7 +18,7 @@ Nein. Erstelle mit den neuen Daten einen neuen Code. Das alte Bild enthält weit
 
 ## QR Tools: QR Code Scanner
 
-Eine Safari-Seite per QR aufs Handy senden, QR-Bilder lesen, WLAN teilen und CSV-Etiketten erstellen. PNG, SVG, ZIP und PDF lokal exportieren.
+QR Tools 1.6.0 · Mehrere QR-Codes auf einer PDF-Seite? Wähle den gewünschten Code direkt aus. Gleiche vor dem Etikettendruck die Codes im fertigen PDF mit deiner CSV-Datei ab.
 
 [App kennenlernen](https://qrtools.luopeike.com/de-DE/qr-tools-app.md)
 

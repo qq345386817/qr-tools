@@ -18,7 +18,7 @@
 
 ## QR Tools 二维码扫描与生成
 
-把 Safari 当前页变成二维码，在另一台设备继续打开。也可读取图片、分享 Wi-Fi、制作 CSV 标签，并在设备上导出 PNG、SVG、ZIP 或 PDF。
+使用 US Letter 的 Avery 5160 标签纸时，可从首个空格续排。印前检查逐格读取最终 PDF，并与对应的 CSV 行比较。
 
 [了解 App](https://qrtools.luopeike.com/zh-Hans/qr-tools-app.md)
 

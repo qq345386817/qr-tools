@@ -22,7 +22,7 @@ PNG 适合图片分享和文档；SVG 放大后仍清晰，适合打印。两种
 
 ## QR Tools 二维码扫描与生成
 
-把 Safari 当前页变成二维码，在另一台设备继续打开。也可读取图片、分享 Wi-Fi、制作 CSV 标签，并在设备上导出 PNG、SVG、ZIP 或 PDF。
+QR Tools 1.6.0 · 活动手册里有好几个二维码？直接打开 PDF，翻到那一页，点选要读的码。批量印标签前，还可以逐格核对成品 PDF 和 CSV 里的内容。
 
 [了解 App](https://qrtools.luopeike.com/zh-Hans/qr-tools-app.md)
 

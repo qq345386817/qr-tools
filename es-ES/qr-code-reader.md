@@ -18,7 +18,7 @@ La cámara es opcional y necesita permiso del navegador en HTTPS. No se solicita
 
 ## QR Tools: Lector y Generador
 
-Comparte una página de Safari por QR. Lee QR de imágenes, crea códigos Wi-Fi y etiquetas CSV. Exporta PNG, SVG, ZIP o PDF en tu dispositivo.
+En una página de un PDF o en una foto, elige el código QR por su número y revisa el destino antes de abrirlo.
 
 [Conoce la app](https://qrtools.luopeike.com/es-ES/qr-tools-app.md)
 
